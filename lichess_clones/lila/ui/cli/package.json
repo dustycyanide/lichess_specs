@@ -1,0 +1,12 @@
+{
+  "name": "cli",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "lib": "workspace:*",
+    "dasher": "workspace:*"
+  },
+  "build": {
+    "bundle": "src/cli.ts"
+  }
+}
