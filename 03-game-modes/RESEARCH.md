@@ -1,5 +1,9 @@
 # Game Modes Research
 
+> **Implementation Note**: When implementing these features, follow the [Hacksoft Django Styleguide](/.claude/skills/hacksoft-django-styleguide/SKILL.md) for backend patterns (services, selectors, APIs) and the [Bulletproof React Styleguide](/.claude/skills/bulletproof-react-styleguide/SKILL.md) for frontend patterns (feature modules, direct imports, TanStack Query).
+
+---
+
 ## Time Control Categories
 
 ### Overview

@@ -3,6 +3,8 @@
 > Research document covering Lichess teams, studies, chat, messaging, and social features.
 > Last updated: December 31, 2025
 
+> **Implementation Note**: When implementing these features, follow the [Hacksoft Django Styleguide](/.claude/skills/hacksoft-django-styleguide/SKILL.md) for backend services and the [Bulletproof React Styleguide](/.claude/skills/bulletproof-react-styleguide/SKILL.md) for frontend components. This project uses cookiecutter-django, so paths should use `<project_slug>/` instead of `apps/`.
+
 ---
 
 ## Table of Contents

@@ -1,0 +1,4090 @@
+{
+  "project": {
+    "name": "Lichess Clone",
+    "key": "LIC",
+    "team": "DJA",
+    "description": "A comprehensive chess platform clone of Lichess built with Django backend (Hacksoft styleguide) and React frontend (Bulletproof React patterns)",
+    "created": "2025-12-31",
+    "patterns": {
+      "backend": "Hacksoft Django Styleguide - services/selectors architecture, APIView pattern",
+      "frontend": "Bulletproof React - feature-based organization, TanStack Query, shadcn/ui, direct imports",
+      "workflow": "Autonomous harness ticket-driven workflow: research \u2192 plan \u2192 implement \u2192 validate"
+    }
+  },
+  "phases": [
+    {
+      "id": "phase-0",
+      "name": "Foundation",
+      "description": "Project setup, infrastructure, and core scaffolding",
+      "ticket_range": "1-20"
+    },
+    {
+      "id": "phase-1",
+      "name": "Core Chess Engine",
+      "description": "Chess rules implementation, move validation, and game state management",
+      "ticket_range": "21-40"
+    },
+    {
+      "id": "phase-2",
+      "name": "Authentication & Users",
+      "description": "User accounts, profiles, settings, and authentication flows",
+      "ticket_range": "41-60"
+    },
+    {
+      "id": "phase-3",
+      "name": "Real-time Infrastructure",
+      "description": "WebSockets, Django Channels, and real-time game communication",
+      "ticket_range": "61-80"
+    },
+    {
+      "id": "phase-4",
+      "name": "Game Mechanics",
+      "description": "Time controls, clocks, game matching, and game lifecycle",
+      "ticket_range": "81-100"
+    },
+    {
+      "id": "phase-5",
+      "name": "Analysis & Training",
+      "description": "Analysis board, puzzles, engine integration, and learning features",
+      "ticket_range": "101-120"
+    },
+    {
+      "id": "phase-6",
+      "name": "Rating & Competitive",
+      "description": "Glicko-2 rating system, tournaments, and leaderboards",
+      "ticket_range": "121-140"
+    },
+    {
+      "id": "phase-7",
+      "name": "Social Features",
+      "description": "Teams, chat, messaging, friends, and community features",
+      "ticket_range": "141-160"
+    },
+    {
+      "id": "phase-8",
+      "name": "Content & Discovery",
+      "description": "Opening explorer, tablebase, TV/broadcasts, and studies",
+      "ticket_range": "161-180"
+    },
+    {
+      "id": "phase-9",
+      "name": "API & Polish",
+      "description": "Public API, mobile support, performance optimization, and monitoring",
+      "ticket_range": "181-200"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "LIC-1",
+      "title": "Initialize Django project using init-django-backend skill",
+      "description": "Use /init-django-backend skill to set up Django backend. This runs cookiecutter-django with recommended options, applies Hacksoft Django Styleguide patterns (services.py, selectors.py, apis.py structure), and configures django-allauth headless for React SPA authentication. Creates common app with exception handlers.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "infrastructure",
+        "hacksoft"
+      ],
+      "phase": "phase-0",
+      "dependencies": [],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-2",
+      "title": "Initialize React frontend following Bulletproof React patterns",
+      "description": "Set up React frontend using Vite, TypeScript, TailwindCSS, and React Router. Follow Bulletproof React architecture: feature-based folder structure (src/features/), shared components (src/shared/), TanStack Query for server state, Zod for validation, shadcn/ui component library. Configure direct imports (no barrel files), ESLint with import/no-restricted-paths for feature isolation.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "infrastructure",
+        "bulletproof"
+      ],
+      "phase": "phase-0",
+      "dependencies": [],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-3",
+      "title": "Configure Docker Compose for full-stack development",
+      "description": "Create unified Docker Compose configuration for running Django, React, PostgreSQL, Redis, and nginx together. Include hot-reloading for development.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "infrastructure",
+        "devops"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1",
+        "LIC-2"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-4",
+      "title": "Set up Django REST Framework with Hacksoft API patterns",
+      "description": "Configure DRF following Hacksoft styleguide: use APIView (not ViewSets), InputSerializer/OutputSerializer pattern, inline serializers. APIs call services for writes and selectors for reads. Configure hacksoft_exception_handler. Set up API versioning with /api/v1/ prefix.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "api",
+        "hacksoft"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md",
+        "08-api/api-design.md"
+      ]
+    },
+    {
+      "id": "LIC-5",
+      "title": "Configure CORS and api-client for frontend-backend communication",
+      "description": "Set up CORS headers for development and production. Create @/lib/api-client.ts following Bulletproof pattern: typed API client using fetch/axios with interceptors for auth tokens and standardized error handling. This client is used by all TanStack Query hooks.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "infrastructure",
+        "bulletproof"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-2",
+        "LIC-4"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-6",
+      "title": "Set up Redis caching layer",
+      "description": "Configure Redis as Django cache backend and session store. Set up connection pooling and health checks.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "infrastructure"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1"
+      ],
+      "spec_refs": [
+        "01-architecture/caching-strategy.md"
+      ]
+    },
+    {
+      "id": "LIC-7",
+      "title": "Create base Django models following Hacksoft patterns",
+      "description": "Set up abstract base models with common fields (created_at, updated_at, uuid). Follow Hacksoft: models define data structure and simple validation only. Business logic goes in services (writes) and selectors (reads). Model properties for computed fields. No custom managers for business logic - use selectors instead.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "database",
+        "hacksoft"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1"
+      ],
+      "spec_refs": [
+        "01-architecture/database-schema.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-8",
+      "title": "Set up Celery for background task processing",
+      "description": "Configure Celery with Redis as broker. Set up beat scheduler for periodic tasks. Create base task classes with retry logic.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "infrastructure"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-6"
+      ],
+      "spec_refs": [
+        "01-architecture/caching-strategy.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-9",
+      "title": "Set up shadcn/ui component library with Bulletproof structure",
+      "description": "Install and configure shadcn/ui as the component library. Place base components in src/shared/components/ui/. Create feature-scoped components in src/features/[name]/components/. All components use Tailwind CSS. Direct imports only - no barrel files. Follow component composition patterns from Bulletproof React.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "design-system",
+        "bulletproof"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-2"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-10",
+      "title": "Configure state management following Bulletproof six-state pattern",
+      "description": "Set up state management per Bulletproof decision tree: (1) URL state via React Router params, (2) Server state via TanStack Query (primary for API data), (3) Local state via useState, (4) Global client state via Zustand (UI preferences, game UI state), (5) Context for theme/identity, (6) React Hook Form for forms. Zustand only for cross-cutting UI state not derived from server.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "state-management",
+        "bulletproof"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-2"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-11",
+      "title": "Set up logging and error tracking",
+      "description": "Configure structured logging in Django with JSON format. Set up Sentry for error tracking in both frontend and backend.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "monitoring"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1",
+        "LIC-2"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-12",
+      "title": "Create health check endpoints",
+      "description": "Implement /health and /ready endpoints for Django. Check database, Redis, and Celery connectivity. Add frontend health indicator.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "monitoring"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-4",
+        "LIC-6"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-13",
+      "title": "Set up CI/CD pipeline with GitHub Actions",
+      "description": "Create GitHub Actions workflows for linting, testing, and building. Configure separate jobs for backend and frontend.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "devops",
+        "infrastructure"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-3"
+      ],
+      "spec_refs": [
+        "00-overview/project-overview.md"
+      ]
+    },
+    {
+      "id": "LIC-14",
+      "title": "Configure environment variable management",
+      "description": "Set up django-environ for backend config. Create .env.example files and document all required variables. Configure React environment handling.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "infrastructure"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1",
+        "LIC-2"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-15",
+      "title": "Set up database connection pooling",
+      "description": "Configure PgBouncer or Django's built-in connection pooling. Set up read replicas support for future scaling.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "database",
+        "infrastructure"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1"
+      ],
+      "spec_refs": [
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-16",
+      "title": "Create Django apps following Hacksoft structure",
+      "description": "Create initial Django apps: users, games, chess, ratings, puzzles, tournaments, teams. Each app follows Hacksoft structure: models.py (data), services.py (write operations with full_clean/save), selectors.py (read operations), apis.py (APIView endpoints), tasks.py (Celery tasks calling services). Define app boundaries - apps can import from each other's services/selectors.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "architecture",
+        "hacksoft"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-7"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-17",
+      "title": "Set up React feature modules following Bulletproof structure",
+      "description": "Create feature directories in src/features/: auth, game, analysis, puzzle, tournament, social. Each feature has: api/ (TanStack Query hooks with three-part pattern: schema, fetcher, hook), components/, hooks/, types/ (Zod schemas + TypeScript types). Features cannot import from other features - only from src/shared/. Use /bulletproof-react-styleguide skill for patterns.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "architecture",
+        "bulletproof"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-9",
+        "LIC-10"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-18",
+      "title": "Configure nginx reverse proxy",
+      "description": "Set up nginx to proxy API requests to Django and serve React static files. Configure WebSocket upgrade handling for future real-time features.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "infrastructure",
+        "devops"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-3"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-19",
+      "title": "Set up testing infrastructure",
+      "description": "Configure pytest for Django with factories (factory_boy) and fixtures. Set up Vitest for React with React Testing Library. Create test database configuration.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "testing"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-1",
+        "LIC-2"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-20",
+      "title": "Create development seed data scripts",
+      "description": "Build management commands to seed development database with sample users, games, and test data. Create fixtures for consistent testing.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "testing",
+        "devops"
+      ],
+      "phase": "phase-0",
+      "dependencies": [
+        "LIC-7",
+        "LIC-16"
+      ],
+      "spec_refs": [
+        "01-architecture/database-schema.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-21",
+      "title": "Integrate python-chess library with Hacksoft service pattern",
+      "description": "Install python-chess as core chess engine. Create chess/services.py with pure functions (not a class) for chess operations following Hacksoft: board_validate_move(), board_apply_move(), board_get_legal_moves(). Use keyword-only arguments with *. Type annotate all functions. These services are called by game services and APIs.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "chess-engine",
+        "hacksoft"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-16"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "lichess_clones/scalachess/README.md"
+      ]
+    },
+    {
+      "id": "LIC-22",
+      "title": "Create Board model and FEN handling",
+      "description": "Implement Board model that stores FEN strings. Add methods for FEN validation, parsing, and board state reconstruction.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "chess-engine",
+        "database"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-21"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-23",
+      "title": "Implement move validation service functions",
+      "description": "Create chess/services.py functions (not a class): move_validate(*, fen: str, uci_move: str) -> bool, move_is_legal(*, board: Board, move: str) -> bool. Follow Hacksoft pattern: pure functions with keyword-only args, type annotations. Handle castling, en passant, promotion. Services are stateless - board state passed as argument.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "chess-engine",
+        "hacksoft"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-21"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "lichess_clones/scalachess/README.md"
+      ]
+    },
+    {
+      "id": "LIC-24",
+      "title": "Create legal move generation service",
+      "description": "Build service to generate all legal moves for a given position. Return moves in UCI format (e.g., e2e4, e7e8q for promotion).",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "chess-engine"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-23"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-25",
+      "title": "Implement game outcome detection",
+      "description": "Create service to detect checkmate, stalemate, insufficient material, threefold repetition, and 50-move rule. Return appropriate game result codes.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "chess-engine"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-23"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-26",
+      "title": "Create PGN parsing and export service",
+      "description": "Implement PGN parser to import games with headers and move annotations. Build PGN export with standard headers and move notation.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "chess-engine"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-21"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "09-resources/data-sources.md"
+      ]
+    },
+    {
+      "id": "LIC-27",
+      "title": "Integrate Chessground in game feature following Bulletproof patterns",
+      "description": "Install react-chessground or create custom wrapper in src/features/game/components/. Follow Bulletproof: component in kebab-case file (chessboard.tsx), named export, props interface with TypeScript, ABOUTME comments. Style with Tailwind CSS. Configuration for themes/piece sets in src/features/game/config.ts.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "chess-ui",
+        "bulletproof"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-17"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "lichess_clones/chessground/README.md"
+      ]
+    },
+    {
+      "id": "LIC-28",
+      "title": "Create ChessBoard React component",
+      "description": "Build reusable ChessBoard component using Chessground. Support view mode (analysis) and play mode with move input. Handle board orientation.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-27"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "lichess_clones/chessground/README.md"
+      ]
+    },
+    {
+      "id": "LIC-29",
+      "title": "Implement move input handling in frontend",
+      "description": "Handle piece drag-and-drop and click-to-move. Show legal move indicators on hover. Implement pre-moves for faster play.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "lichess_clones/chessground/README.md"
+      ]
+    },
+    {
+      "id": "LIC-30",
+      "title": "Create promotion dialog component",
+      "description": "Build modal/popup for pawn promotion piece selection. Show Queen, Rook, Bishop, Knight options. Handle touch and click selection.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-29"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "lichess_clones/chessground/README.md"
+      ]
+    },
+    {
+      "id": "LIC-31",
+      "title": "Build move list component",
+      "description": "Create component to display game moves in algebraic notation. Support click-to-navigate, current move highlighting, and scrolling.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-32",
+      "title": "Implement check and checkmate indicators",
+      "description": "Add visual indicators for check (king square highlight) and checkmate. Show last move highlighting on board.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "lichess_clones/chessground/README.md"
+      ]
+    },
+    {
+      "id": "LIC-33",
+      "title": "Create captured pieces display component",
+      "description": "Build component showing captured pieces for both sides. Calculate and display material advantage.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-34",
+      "title": "Implement board theme and piece set selection",
+      "description": "Add support for multiple board themes (wood, blue, green) and piece sets (cburnett, merida, alpha). Store preferences locally.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "chess-ui",
+        "preferences"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "lichess_clones/chessground/README.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-35",
+      "title": "Create chess variant model infrastructure",
+      "description": "Design model structure to support chess variants (Standard, Chess960, Crazyhouse, etc.). Add variant field to game models.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "chess-engine",
+        "database"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-22"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-36",
+      "title": "Implement Chess960 support",
+      "description": "Add support for Fischer Random Chess (Chess960). Implement position generation and castling rules for random starting positions.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "chess-engine",
+        "variants"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-35"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-37",
+      "title": "Create position evaluation display component",
+      "description": "Build component to display engine evaluation bar. Show centipawn values and mate-in-N. Support both static and animated updates.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "chess-ui",
+        "analysis"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md",
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-38",
+      "title": "Implement board coordinate toggle",
+      "description": "Add option to show/hide algebraic coordinates on board edges. Support both inside and outside coordinate placement.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "lichess_clones/chessground/README.md"
+      ]
+    },
+    {
+      "id": "LIC-39",
+      "title": "Create move annotation support",
+      "description": "Add support for chess move annotations (!, ?, !!, ??, !?, ?!). Display annotations in move list and support adding them.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "backend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-26",
+        "LIC-31"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-40",
+      "title": "Implement board arrows and highlights drawing",
+      "description": "Add support for drawing arrows and square highlights on the board. Allow users to right-click drag for arrows, shift+click for highlights.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "chess-ui"
+      ],
+      "phase": "phase-1",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "lichess_clones/chessground/README.md",
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-41",
+      "title": "Create User model with chess-specific fields",
+      "description": "Extend Django user model with chess profile fields: country, title (GM, IM, etc.), bio, flair. Add patron status and join date.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "users",
+        "database"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-7"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-42",
+      "title": "Implement user registration with Hacksoft service pattern",
+      "description": "Create users/services.py: user_create(*, email: str, username: str, password: str) -> User. Follow Hacksoft: full_clean() before save(), @transaction.atomic, keyword-only args. Registration logic delegates to allauth-headless endpoints. Email verification via allauth. Username validation in model clean().",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "users",
+        "auth",
+        "hacksoft"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-43",
+      "title": "Create login and logout functionality",
+      "description": "Implement JWT-based authentication. Create login endpoint with remember-me option. Handle token refresh and logout/token invalidation.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "auth"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-42"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-44",
+      "title": "Build auth feature with Bulletproof provider pattern",
+      "description": "Create src/features/auth/ following Bulletproof provider pattern for swappable auth (allauth-headless). Structure: types/ (AuthContext interface), providers/auth-context.ts, providers/allauth-provider.tsx, hooks/use-auth.ts, config.ts (provider selection). TanStack Query for auth state. Integrates with allauth headless endpoints.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "auth",
+        "bulletproof"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-10"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-45",
+      "title": "Create login and registration forms with React Hook Form + Zod",
+      "description": "Build src/features/auth/components/login-form.tsx and register-form.tsx. Use React Hook Form for form state, Zod schemas for validation (in types/). shadcn/ui Form components. TanStack Query mutations for API calls (api/login.ts, api/register.ts following three-part pattern). Direct imports, no barrel files.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "auth",
+        "ui",
+        "bulletproof"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-44"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-46",
+      "title": "Implement password reset flow",
+      "description": "Create forgot password and reset password endpoints. Send reset emails via Celery. Implement secure token generation and validation.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "auth"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-43",
+        "LIC-8"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-47",
+      "title": "Create user profile page",
+      "description": "Build profile page showing user info, game statistics, recent games, and activity. Support viewing own and other user profiles.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "users",
+        "ui"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-44"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-48",
+      "title": "Build user settings page",
+      "description": "Create settings page with tabs for account, preferences, privacy, and security. Implement setting save with optimistic updates.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "users",
+        "ui"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-47"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-49",
+      "title": "Create UserPreferences model",
+      "description": "Design preferences model for board theme, piece set, sound settings, animation speed, show ratings, and display options.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "users",
+        "database"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-50",
+      "title": "Implement account deletion",
+      "description": "Build account closure flow with data export option. Anonymize game data while preserving game history. Implement grace period before deletion.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "users",
+        "privacy"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-51",
+      "title": "Create user search functionality",
+      "description": "Implement user search by username with autocomplete. Add filters for online status, rating range, and title.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "users"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41",
+        "LIC-47"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-52",
+      "title": "Implement user blocking",
+      "description": "Add ability to block users. Blocked users cannot challenge, message, or follow. Create blocked users management UI.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "users",
+        "moderation"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "06-social/chat-messaging.md"
+      ]
+    },
+    {
+      "id": "LIC-53",
+      "title": "Create following/followers system",
+      "description": "Implement follow functionality between users. Show follower/following counts on profile. Create feed of followed users' activity.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "social"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41",
+        "LIC-47"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "06-social/teams-clubs.md"
+      ]
+    },
+    {
+      "id": "LIC-54",
+      "title": "Build user activity feed",
+      "description": "Create activity feed showing games played, tournaments joined, and achievements. Implement pagination and filtering.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "users"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-47"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-55",
+      "title": "Implement titled player verification",
+      "description": "Create flow for FIDE-titled players to verify titles. Admin approval workflow with document/proof submission.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "users",
+        "admin"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-56",
+      "title": "Create avatar/profile picture support",
+      "description": "Implement profile picture upload with image resizing. Support avatar removal and default avatars. Add NSFW detection placeholder.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "users"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-47"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-57",
+      "title": "Implement session management",
+      "description": "Show active sessions with device info. Allow users to revoke sessions from other devices. Implement forced logout on password change.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "auth",
+        "security"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-43",
+        "LIC-48"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-58",
+      "title": "Create email preferences management",
+      "description": "Build preferences for email notifications: game alerts, tournament reminders, newsletter. Implement one-click unsubscribe.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "users"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-49"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-59",
+      "title": "Implement kid mode",
+      "description": "Create kid-friendly mode that disables chat and hides certain features. Require parent/guardian confirmation. Add visual indicator.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "users",
+        "safety"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-49"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-60",
+      "title": "Create user roles and permissions system",
+      "description": "Implement role-based access control for mods, admins, and special users. Create permission checking decorators and hooks.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "users",
+        "security"
+      ],
+      "phase": "phase-2",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-61",
+      "title": "Install and configure Django Channels",
+      "description": "Set up Django Channels with Redis channel layer. Configure ASGI application and routing. Create base WebSocket consumer.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "realtime",
+        "infrastructure"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-6"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-62",
+      "title": "Create WebSocket authentication",
+      "description": "Implement JWT authentication for WebSocket connections. Create middleware for auth token validation on connection.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "realtime",
+        "auth"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61",
+        "LIC-43"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-63",
+      "title": "Build game room consumer",
+      "description": "Create WebSocket consumer for individual game rooms. Handle player join/leave, move submission, and game events.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "realtime",
+        "games"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-62"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-64",
+      "title": "Create WebSocket hooks following Bulletproof patterns",
+      "description": "Create src/features/game/hooks/use-game-socket.ts for game WebSocket connections. Follow Bulletproof: custom hook pattern, TypeScript types in types/, handle reconnection with exponential backoff, message queuing during disconnect. Integrate with TanStack Query for cache invalidation on game state changes.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "realtime",
+        "bulletproof"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-10"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-65",
+      "title": "Create game state synchronization protocol",
+      "description": "Design and implement protocol for syncing game state: moves, clock times, draw offers, resignations. Handle message ordering.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "frontend",
+        "realtime",
+        "protocol"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-63",
+        "LIC-64"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-66",
+      "title": "Implement lobby/matchmaking consumer",
+      "description": "Create consumer for game lobby showing available seeks. Broadcast new seeks, removed seeks, and game starts.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "realtime",
+        "matchmaking"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-67",
+      "title": "Build presence tracking system",
+      "description": "Implement online/offline status tracking using WebSocket connections. Create presence broadcast for profile pages and friend lists.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "realtime",
+        "users"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-68",
+      "title": "Create connection recovery and reconnection logic",
+      "description": "Implement automatic reconnection with exponential backoff. Handle game state recovery after disconnect. Queue moves during offline.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "realtime"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-64",
+        "LIC-65"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-69",
+      "title": "Implement spectator mode WebSocket",
+      "description": "Create read-only WebSocket connection for game spectators. Handle spectator count broadcasting. Limit spectator connections if needed.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "realtime"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-63"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "07-content/tv-broadcasts.md"
+      ]
+    },
+    {
+      "id": "LIC-70",
+      "title": "Build real-time notification system",
+      "description": "Create notification consumer for challenges, messages, and game events. Implement notification preferences filtering.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "realtime",
+        "notifications"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-71",
+      "title": "Create game seek broadcasting",
+      "description": "Implement real-time broadcast of game seeks. Filter seeks by user preferences (rating range, time control). Handle seek expiration.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "realtime",
+        "matchmaking"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-66"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-72",
+      "title": "Implement lag compensation",
+      "description": "Create lag measurement between client and server. Adjust clock display and move timing to account for network latency.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "realtime",
+        "games"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-65"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-73",
+      "title": "Build tournament live updates consumer",
+      "description": "Create consumer for tournament standings updates. Broadcast game results, pairing updates, and tournament completion.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "realtime",
+        "tournaments"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-74",
+      "title": "Create challenge system WebSocket",
+      "description": "Implement real-time challenge sending, accepting, and declining. Show pending challenges with live updates.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "realtime"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61",
+        "LIC-64"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-75",
+      "title": "Implement connection rate limiting",
+      "description": "Add rate limiting for WebSocket connections per user. Prevent connection flooding and resource exhaustion.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "realtime",
+        "security"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-76",
+      "title": "Create WebSocket message validation",
+      "description": "Implement schema validation for incoming WebSocket messages. Reject malformed messages with error responses.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "realtime",
+        "security"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-63"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-77",
+      "title": "Build connection metrics and monitoring",
+      "description": "Instrument WebSocket connections with metrics. Track message latency, connection duration, and error rates.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "realtime",
+        "monitoring"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61",
+        "LIC-11"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-78",
+      "title": "Implement typing indicator for chat",
+      "description": "Create typing indicator broadcast for chat rooms. Debounce typing events to reduce message volume.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "frontend",
+        "realtime",
+        "chat"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "06-social/chat-messaging.md"
+      ]
+    },
+    {
+      "id": "LIC-79",
+      "title": "Create horizontal scaling support for Channels",
+      "description": "Configure Redis Pub/Sub for multi-instance deployment. Test WebSocket routing across multiple worker processes.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "realtime",
+        "infrastructure"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "01-architecture/caching-strategy.md"
+      ]
+    },
+    {
+      "id": "LIC-80",
+      "title": "Build WebSocket connection debugging tools",
+      "description": "Create admin tools for viewing active connections, sending test messages, and force-disconnecting users.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "realtime",
+        "admin",
+        "tools"
+      ],
+      "phase": "phase-3",
+      "dependencies": [
+        "LIC-61",
+        "LIC-77"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-81",
+      "title": "Create Game model following Hacksoft patterns",
+      "description": "Design Game model in games/models.py with players, time control, status, result, moves (JSONField), timestamps. Model defines data structure only - lifecycle logic goes in games/services.py (game_create, game_make_move, game_resign, game_offer_draw). Read queries in games/selectors.py (game_get, game_list_for_user). Add DB indexes for efficient queries.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "games",
+        "database",
+        "hacksoft"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-22",
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-82",
+      "title": "Implement time control model",
+      "description": "Create TimeControl model supporting initial time, increment, and delay. Add helpers for category classification (bullet, blitz, rapid).",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "games",
+        "database"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "03-game-modes/timed-games.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-83",
+      "title": "Build server-side clock management",
+      "description": "Implement clock service tracking remaining time per player. Handle increment addition after moves. Detect timeout losses.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-82"
+      ],
+      "spec_refs": [
+        "03-game-modes/timed-games.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-84",
+      "title": "Create client-side clock display component",
+      "description": "Build chess clock component showing both players' time. Handle real-time countdown with server sync. Show low-time warnings.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "games",
+        "ui"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "03-game-modes/timed-games.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-85",
+      "title": "Implement game creation service with Hacksoft pattern",
+      "description": "Create games/services.py: game_create(*, white: User, black: User, time_control: TimeControl, rated: bool, variant: str) -> Game. Follow Hacksoft: @transaction.atomic, full_clean() before save(), keyword-only args, type annotations. Validate player eligibility (not self, not blocked). Return created Game instance.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "games",
+        "hacksoft"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-81",
+        "LIC-82"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-86",
+      "title": "Build game seek system",
+      "description": "Implement game seek creation and matching. Store seeks in Redis for fast matching. Handle seek expiration and removal.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "matchmaking"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-85",
+        "LIC-6"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/caching-strategy.md"
+      ]
+    },
+    {
+      "id": "LIC-87",
+      "title": "Create quick pairing matchmaking",
+      "description": "Implement automatic matchmaking pool. Match players by rating with expanding range over time. Optimize for fast pairing.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "matchmaking"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-86"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-88",
+      "title": "Build game lobby UI",
+      "description": "Create lobby page showing available game seeks. Implement filtering by time control, variant, rating range. Allow seek creation.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "matchmaking",
+        "ui"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-71"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-89",
+      "title": "Implement challenge system",
+      "description": "Create direct challenge functionality between users. Support custom time controls and variants. Handle challenge accept/decline.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-85",
+        "LIC-74"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-90",
+      "title": "Create live game page following Bulletproof patterns",
+      "description": "Build src/features/game/components/live-game-page.tsx composing board, clocks, move list, player info components. Follow Bulletproof: feature-scoped components, direct imports, TanStack Query for game data, custom hooks for game logic (use-game-actions.ts). shadcn/ui for UI elements, Tailwind for layout. WebSocket integration via use-game-socket hook.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "games",
+        "ui",
+        "bulletproof"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-28",
+        "LIC-84",
+        "LIC-65"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-91",
+      "title": "Implement draw offer system",
+      "description": "Add draw offer, accept, and decline functionality. Enforce anti-repetition rules (no spam offers). Sync draw state via WebSocket.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-65"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-92",
+      "title": "Create resignation functionality",
+      "description": "Implement game resignation with confirmation. Update game result and notify opponent via WebSocket.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-65"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-93",
+      "title": "Implement game abort rules",
+      "description": "Allow game abort before move 2. Handle timeout abort differently from resignation. Update game status appropriately.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-94",
+      "title": "Create rematch system",
+      "description": "Implement rematch offer after game completion. Swap colors between rematches. Handle rematch timeout.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-85"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-95",
+      "title": "Build game result display",
+      "description": "Create game end overlay showing result, rating change, and rematch option. Display game summary statistics.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "games",
+        "ui"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-90"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-96",
+      "title": "Implement correspondence game support",
+      "description": "Add support for correspondence games with days per move. Handle email notifications for moves. No real-time clock needed.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "03-game-modes/correspondence.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-97",
+      "title": "Create game history page",
+      "description": "Build page listing user's past games. Filter by opponent, result, time control. Support pagination and search.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "games",
+        "ui"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-98",
+      "title": "Implement pre-moves",
+      "description": "Add premove functionality for faster play. Queue up to 3 premoves. Execute premoves on opponent's move. Handle invalid premoves.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-29"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md",
+        "lichess_clones/chessground/README.md"
+      ]
+    },
+    {
+      "id": "LIC-99",
+      "title": "Create takebacks request system",
+      "description": "Implement takeback request and approval. Only for casual games. Handle undo of move and clock adjustment.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-65"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-100",
+      "title": "Build game export functionality",
+      "description": "Create PGN export for individual games and game collections. Include headers, moves, and annotations. Support download and clipboard.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-4",
+      "dependencies": [
+        "LIC-26",
+        "LIC-97"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "09-resources/data-sources.md"
+      ]
+    },
+    {
+      "id": "LIC-101",
+      "title": "Integrate Stockfish.js for browser analysis",
+      "description": "Set up Stockfish WASM in web worker. Create worker communication layer. Handle engine initialization and cleanup.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "analysis",
+        "engine"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md",
+        "09-resources/open-source-resources.md"
+      ]
+    },
+    {
+      "id": "LIC-102",
+      "title": "Create analysis board page",
+      "description": "Build full analysis board with move tree navigation, engine lines, and evaluation graph. Support game import via PGN/FEN.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "analysis",
+        "ui"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-101",
+        "LIC-31"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-103",
+      "title": "Implement engine depth and multipv settings",
+      "description": "Add UI controls for engine search depth and number of lines (multiPV). Persist settings in preferences.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "analysis"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-101"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-104",
+      "title": "Build variation tree display",
+      "description": "Create component for displaying move variations as a tree. Support adding, deleting, and promoting variations.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "analysis",
+        "ui"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-102"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-105",
+      "title": "Create Puzzle model",
+      "description": "Design Puzzle model with FEN, solution moves, themes, rating, play count, and source game reference.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "puzzles",
+        "database"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-22"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-106",
+      "title": "Build puzzle player UI",
+      "description": "Create puzzle solving interface. Show opponent's move, accept only correct moves, provide hints system. Track attempts.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "frontend",
+        "puzzles",
+        "ui"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-28",
+        "LIC-105"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-107",
+      "title": "Implement puzzle rating system",
+      "description": "Apply Glicko-2 to puzzle solving. Update both player puzzle rating and puzzle difficulty based on solve results.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "puzzles",
+        "ratings"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-105"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md",
+        "02-core-features/rating-system.md"
+      ]
+    },
+    {
+      "id": "LIC-108",
+      "title": "Create puzzle themes/tags system",
+      "description": "Implement puzzle theme classification: fork, pin, skewer, back rank, etc. Allow filtering puzzles by theme.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "puzzles"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-105"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md"
+      ]
+    },
+    {
+      "id": "LIC-109",
+      "title": "Build puzzle streak mode",
+      "description": "Create endless puzzle mode where streak ends on first failure. Track high scores. Show streak counter.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "puzzles"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-106"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md"
+      ]
+    },
+    {
+      "id": "LIC-110",
+      "title": "Implement puzzle storm mode",
+      "description": "Create timed puzzle solving (3-5 minutes). Count correct solves. Track personal bests. Create leaderboard.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "puzzles"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-106"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md"
+      ]
+    },
+    {
+      "id": "LIC-111",
+      "title": "Create puzzle dashboard",
+      "description": "Build puzzle home page showing rating, daily puzzle, recent activity, and theme breakdown chart.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "puzzles",
+        "ui"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-106",
+        "LIC-107"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-112",
+      "title": "Import Lichess puzzle database",
+      "description": "Create management command to import puzzles from Lichess database CSV. Handle incremental updates.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "puzzles",
+        "data"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-105"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md",
+        "09-resources/data-sources.md"
+      ]
+    },
+    {
+      "id": "LIC-113",
+      "title": "Build learn section basics page",
+      "description": "Create interactive chess lessons for beginners: piece movement, special moves, check, checkmate patterns.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "learn",
+        "ui"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md",
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-114",
+      "title": "Implement coordinate training",
+      "description": "Create coordinate training game. Flash square names, user clicks square. Track speed and accuracy. Color mode option.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "frontend",
+        "training"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "04-training/puzzles.md"
+      ]
+    },
+    {
+      "id": "LIC-115",
+      "title": "Create practice positions feature",
+      "description": "Implement practice mode for specific position types: checkmate patterns, endgames. Show solution on demand.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "training"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md",
+        "04-training/puzzles.md"
+      ]
+    },
+    {
+      "id": "LIC-116",
+      "title": "Build server-side analysis with fishnet",
+      "description": "Create distributed analysis system. Queue positions for analysis. Store analysis results. Rate limit per user.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "analysis",
+        "infrastructure"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-8"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md",
+        "09-resources/open-source-resources.md"
+      ]
+    },
+    {
+      "id": "LIC-117",
+      "title": "Implement game analysis request",
+      "description": "Allow users to request full game analysis. Show analysis progress. Display blunders, mistakes, and inaccuracies.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "analysis"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-116"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-118",
+      "title": "Create accuracy percentage calculation",
+      "description": "Calculate centipawn loss per move. Compute overall game accuracy percentage. Compare to typical levels.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "analysis"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-117"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-119",
+      "title": "Build insights/statistics page",
+      "description": "Create page showing playing patterns: favorite openings, performance by time control, rating history chart.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "analysis",
+        "statistics"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-97"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-120",
+      "title": "Implement retrograde analysis display",
+      "description": "Show what-if analysis for alternative moves. Display evaluation changes. Navigate through variations.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "analysis"
+      ],
+      "phase": "phase-5",
+      "dependencies": [
+        "LIC-102",
+        "LIC-104"
+      ],
+      "spec_refs": [
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-121",
+      "title": "Create Rating model with Glicko-2 support",
+      "description": "Design Rating model storing rating, RD, volatility per category (bullet, blitz, rapid, etc.). Track rating history.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "ratings",
+        "database"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "02-core-features/rating-system.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-122",
+      "title": "Implement Glicko-2 rating calculation",
+      "description": "Build Glicko-2 algorithm following python-chess or custom implementation. Handle rating updates after games.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "ratings"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-121"
+      ],
+      "spec_refs": [
+        "02-core-features/rating-system.md",
+        "lichess_clones/scalachess/rating/src/main/scala/glicko/impl/README.md"
+      ]
+    },
+    {
+      "id": "LIC-123",
+      "title": "Create rating deviation management",
+      "description": "Implement RD increase over time for inactive players. Mark ratings as provisional when RD > 110.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "ratings"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-122"
+      ],
+      "spec_refs": [
+        "02-core-features/rating-system.md"
+      ]
+    },
+    {
+      "id": "LIC-124",
+      "title": "Build leaderboards",
+      "description": "Create leaderboard pages for each rating category. Show top 100 players. Include country and title filters.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "ratings",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-121"
+      ],
+      "spec_refs": [
+        "05-competitive/leaderboards.md",
+        "02-core-features/rating-system.md"
+      ]
+    },
+    {
+      "id": "LIC-125",
+      "title": "Create Tournament model",
+      "description": "Design Tournament model supporting Arena and Swiss formats. Include schedule, time control, status, and results.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "tournaments",
+        "database"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-126",
+      "title": "Implement Arena tournament format",
+      "description": "Build Arena tournament logic: continuous play, instant pairing, berserk mode, winning streak bonuses.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "tournaments"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-125"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-127",
+      "title": "Build Arena pairing algorithm",
+      "description": "Implement minimum weight matching for Arena. Consider score proximity, recent opponents, color balance.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "backend",
+        "tournaments"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-126"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-128",
+      "title": "Create tournament lobby UI",
+      "description": "Build tournament waiting room showing countdown, participants, and seeding. Handle player join/leave.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "tournaments",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-125",
+        "LIC-73"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-129",
+      "title": "Implement tournament standings display",
+      "description": "Create live standings with score, tiebreak, games played. Highlight current game. Update in real-time.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "tournaments",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-128"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-130",
+      "title": "Build tournament creation UI",
+      "description": "Create form for creating tournaments. Include time control, duration, rating restrictions. Support scheduled tournaments.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "tournaments",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-125"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-131",
+      "title": "Implement Swiss tournament format",
+      "description": "Build Swiss system with fixed rounds. Implement Dutch pairing algorithm. Handle odd number of players (byes).",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "tournaments"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-125"
+      ],
+      "spec_refs": [
+        "05-competitive/swiss-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-132",
+      "title": "Create Swiss pairing algorithm",
+      "description": "Implement FIDE-style Swiss pairing. Balance colors, avoid repeat pairings, handle floaters.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "tournaments"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-131"
+      ],
+      "spec_refs": [
+        "05-competitive/swiss-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-133",
+      "title": "Build tournament calendar",
+      "description": "Create calendar view of upcoming tournaments. Filter by time control, variant, rating. Support favorites.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "tournaments",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-125"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md",
+        "05-competitive/swiss-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-134",
+      "title": "Implement tournament tiebreaks",
+      "description": "Calculate tiebreaks: Buchholz, Sonneborn-Berger, performance rating. Apply based on format.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "tournaments"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-126",
+        "LIC-131"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md",
+        "05-competitive/swiss-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-135",
+      "title": "Create tournament history page",
+      "description": "Show past tournaments user participated in. Display finish position, score, and rating change.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "tournaments",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-125"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-136",
+      "title": "Implement tournament prizes display",
+      "description": "Show trophy/medal icons for podium finishes. Display prize breakdown if applicable.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "frontend",
+        "tournaments",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-129"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-137",
+      "title": "Create rating graph component",
+      "description": "Build interactive rating history chart. Support multiple time controls on same graph. Show date range selection.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "ratings",
+        "ui"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-121"
+      ],
+      "spec_refs": [
+        "02-core-features/rating-system.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-138",
+      "title": "Implement rating percentile display",
+      "description": "Calculate and show user's rating percentile. Display distribution charts by rating category.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "ratings"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-121"
+      ],
+      "spec_refs": [
+        "02-core-features/rating-system.md",
+        "05-competitive/leaderboards.md"
+      ]
+    },
+    {
+      "id": "LIC-139",
+      "title": "Build simul (simultaneous exhibition) support",
+      "description": "Create simul format where one player faces multiple opponents. Handle timing and board cycling.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "tournaments"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-140",
+      "title": "Create tournament notification system",
+      "description": "Send reminders before tournaments start. Notify when round begins. Email and in-app notifications.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "tournaments",
+        "notifications"
+      ],
+      "phase": "phase-6",
+      "dependencies": [
+        "LIC-125",
+        "LIC-70"
+      ],
+      "spec_refs": [
+        "05-competitive/arena-tournaments.md",
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-141",
+      "title": "Create Team model",
+      "description": "Design Team model with name, description, leader, members, and join policy (open/request/closed).",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "teams",
+        "database"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-142",
+      "title": "Build team creation and management",
+      "description": "Implement team creation form. Allow leaders to manage members, settings, and description.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "teams"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-141"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md"
+      ]
+    },
+    {
+      "id": "LIC-143",
+      "title": "Create team page UI",
+      "description": "Build team page showing description, members, recent games, and leaderboard. Support join requests.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "teams",
+        "ui"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-141"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-144",
+      "title": "Implement team battles",
+      "description": "Create team vs team tournament format. Aggregate scores from team members. Show team standings.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "teams",
+        "tournaments"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-141",
+        "LIC-126"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md",
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-145",
+      "title": "Create chat room model",
+      "description": "Design ChatRoom model supporting game chat, team chat, and tournament chat. Include moderation flags.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "chat",
+        "database"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-61"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-146",
+      "title": "Build real-time chat component",
+      "description": "Create chat UI component with message input, history, and user mentions. Handle emoji support.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "chat",
+        "ui"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-145"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-147",
+      "title": "Implement game chat",
+      "description": "Add in-game chat between players and spectators. Support muting opponents. Link to report system.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "chat",
+        "games"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-146",
+        "LIC-90"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-148",
+      "title": "Create direct messaging system",
+      "description": "Implement private messages between users. Show conversation threads. Support blocking senders.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "messaging"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md"
+      ]
+    },
+    {
+      "id": "LIC-149",
+      "title": "Build chat moderation tools",
+      "description": "Create moderator tools for muting users, deleting messages, and banning from chats. Log moderation actions.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "chat",
+        "moderation"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-145",
+        "LIC-60"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md"
+      ]
+    },
+    {
+      "id": "LIC-150",
+      "title": "Implement friend system",
+      "description": "Create friend request, accept, and remove functionality. Show friends online status. Quick challenge friends.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "social"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-53"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md",
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-151",
+      "title": "Build forum system",
+      "description": "Create forum with categories, threads, and posts. Support markdown formatting. Implement pagination.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "community"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md"
+      ]
+    },
+    {
+      "id": "LIC-152",
+      "title": "Create blog/article publishing",
+      "description": "Build blog system for news and articles. Support rich text editing, images, and embedded games.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "content"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-60"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md"
+      ]
+    },
+    {
+      "id": "LIC-153",
+      "title": "Implement reporting system",
+      "description": "Create user reporting for cheating, abuse, and inappropriate content. Queue reports for moderator review.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "frontend",
+        "moderation"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-60"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md",
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-154",
+      "title": "Build moderation dashboard",
+      "description": "Create admin dashboard for reviewing reports. Show user history, recent games, and action buttons.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "moderation",
+        "admin"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-153"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-155",
+      "title": "Implement user banning system",
+      "description": "Create temporary and permanent ban functionality. Handle ban evasion detection. Show ban reason to user.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "moderation"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-60"
+      ],
+      "spec_refs": [
+        "06-social/chat-messaging.md",
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-156",
+      "title": "Create notes/game comments system",
+      "description": "Allow users to add private notes to games. Support text formatting and position bookmarks.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "06-social/studies.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-157",
+      "title": "Build user search with filters",
+      "description": "Enhance user search with advanced filters: rating range, title, country, online status, last active.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "search"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-51"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-158",
+      "title": "Implement flair/badge system",
+      "description": "Create achievement badges for milestones: games played, puzzles solved, tournament wins. Display on profile.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "gamification"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-47"
+      ],
+      "spec_refs": [
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-159",
+      "title": "Create team tournaments",
+      "description": "Implement team-restricted tournaments. Only team members can join. Show team branding.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "teams",
+        "tournaments"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-141",
+        "LIC-125"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md",
+        "05-competitive/arena-tournaments.md"
+      ]
+    },
+    {
+      "id": "LIC-160",
+      "title": "Build team forum/discussion area",
+      "description": "Create team-private discussion area. Support announcements and pinned posts. Leader moderation.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "teams"
+      ],
+      "phase": "phase-7",
+      "dependencies": [
+        "LIC-141",
+        "LIC-151"
+      ],
+      "spec_refs": [
+        "06-social/teams-clubs.md"
+      ]
+    },
+    {
+      "id": "LIC-161",
+      "title": "Integrate opening explorer API",
+      "description": "Connect to Lichess opening explorer API or build own. Show move statistics from master games and Lichess games.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "openings"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-4"
+      ],
+      "spec_refs": [
+        "07-content/opening-explorer.md",
+        "09-resources/data-sources.md"
+      ]
+    },
+    {
+      "id": "LIC-162",
+      "title": "Build opening explorer UI",
+      "description": "Create UI showing opening statistics per move. Display win/draw/loss percentages, move popularity, and top games.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "openings",
+        "ui"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-161",
+        "LIC-102"
+      ],
+      "spec_refs": [
+        "07-content/opening-explorer.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-163",
+      "title": "Create opening classification system",
+      "description": "Implement ECO code classification. Store opening names and main lines. Auto-tag games with opening.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "openings"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-26"
+      ],
+      "spec_refs": [
+        "07-content/opening-explorer.md",
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-164",
+      "title": "Integrate tablebase API",
+      "description": "Connect to Syzygy tablebase API. Query endgame positions for DTZ/DTM values. Cache results.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "analysis"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-4"
+      ],
+      "spec_refs": [
+        "07-content/tablebase.md",
+        "09-resources/data-sources.md"
+      ]
+    },
+    {
+      "id": "LIC-165",
+      "title": "Build tablebase display UI",
+      "description": "Show tablebase results in analysis. Display optimal moves and distance to mate/zeroing. Integrate with board.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "analysis",
+        "ui"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-164",
+        "LIC-102"
+      ],
+      "spec_refs": [
+        "07-content/tablebase.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-166",
+      "title": "Create Chess TV feature",
+      "description": "Build live game spectating feature. Auto-select interesting games. Support multiple channels (by rating, time control).",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "spectating"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-69"
+      ],
+      "spec_refs": [
+        "07-content/tv-broadcasts.md",
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-167",
+      "title": "Implement broadcast/relay system",
+      "description": "Create system for relaying external chess events. Parse PGN feeds. Show live moves with sync.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "broadcasts"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-26"
+      ],
+      "spec_refs": [
+        "07-content/tv-broadcasts.md",
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-168",
+      "title": "Build broadcast viewing page",
+      "description": "Create multi-board view for broadcasts. Show player info, clocks, and standings. Support following specific boards.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "frontend",
+        "broadcasts",
+        "ui"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-167"
+      ],
+      "spec_refs": [
+        "07-content/tv-broadcasts.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-169",
+      "title": "Create Study model",
+      "description": "Design Study model supporting multiple chapters, collaborators, and visibility settings. Store variations and annotations.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "studies",
+        "database"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-26"
+      ],
+      "spec_refs": [
+        "06-social/studies.md",
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-170",
+      "title": "Build study editor UI",
+      "description": "Create full study editor with chapter management, move annotations, and arrow/highlight drawing. Support real-time collaboration.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "studies",
+        "ui"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-169",
+        "LIC-102"
+      ],
+      "spec_refs": [
+        "06-social/studies.md",
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-171",
+      "title": "Implement study sharing",
+      "description": "Add study visibility controls: private, unlisted, public. Generate share links. Support study embedding.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "studies"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-169"
+      ],
+      "spec_refs": [
+        "06-social/studies.md"
+      ]
+    },
+    {
+      "id": "LIC-172",
+      "title": "Create study practice mode",
+      "description": "Build interactive mode where learners guess moves. Show feedback on correct/incorrect. Track progress through study.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "studies"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-170"
+      ],
+      "spec_refs": [
+        "06-social/studies.md",
+        "04-training/puzzles.md"
+      ]
+    },
+    {
+      "id": "LIC-173",
+      "title": "Build game database search",
+      "description": "Create searchable game database. Filter by players, opening, date, result. Support position search.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "search"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "07-content/opening-explorer.md",
+        "02-core-features/game-engine.md"
+      ]
+    },
+    {
+      "id": "LIC-174",
+      "title": "Implement game import from PGN files",
+      "description": "Allow bulk PGN import from file upload. Validate and store games. Show import progress and errors.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-26"
+      ],
+      "spec_refs": [
+        "02-core-features/game-engine.md",
+        "09-resources/data-sources.md"
+      ]
+    },
+    {
+      "id": "LIC-175",
+      "title": "Create GIF export for games",
+      "description": "Generate animated GIF of game moves. Support speed control and board theme. Allow social sharing.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "games"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-176",
+      "title": "Build game embed widget",
+      "description": "Create embeddable game viewer for external sites. Support customization: board size, controls, autoplay.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "frontend",
+        "games"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-28"
+      ],
+      "spec_refs": [
+        "lichess_clones/chessground/README.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-177",
+      "title": "Implement video/stream integration",
+      "description": "Allow linking Twitch/YouTube streams to profiles. Show streaming indicator. List active streamers.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "content"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-47"
+      ],
+      "spec_refs": [
+        "07-content/tv-broadcasts.md"
+      ]
+    },
+    {
+      "id": "LIC-178",
+      "title": "Create coach directory",
+      "description": "Build directory of chess coaches. Support profiles, reviews, and contact. Filter by rating, language, price.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "content"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "00-overview/project-overview.md"
+      ]
+    },
+    {
+      "id": "LIC-179",
+      "title": "Implement world records tracking",
+      "description": "Track site records: fastest checkmate, longest game, highest rating, etc. Show record holders.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "content"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-81"
+      ],
+      "spec_refs": [
+        "02-core-features/rating-system.md",
+        "05-competitive/leaderboards.md"
+      ]
+    },
+    {
+      "id": "LIC-180",
+      "title": "Build patron/donation system",
+      "description": "Create patron system with optional perks (custom flair). Integrate Stripe for payments. Show patron badges.",
+      "status": "backlog",
+      "priority": 4,
+      "labels": [
+        "backend",
+        "frontend",
+        "payments"
+      ],
+      "phase": "phase-8",
+      "dependencies": [
+        "LIC-41"
+      ],
+      "spec_refs": [
+        "00-overview/project-overview.md",
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-181",
+      "title": "Design comprehensive public API",
+      "description": "Design REST API covering games, users, puzzles, tournaments. Document with OpenAPI spec. Version API.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "api"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-4"
+      ],
+      "spec_refs": [
+        "08-api/api-design.md"
+      ]
+    },
+    {
+      "id": "LIC-182",
+      "title": "Implement API authentication (OAuth2)",
+      "description": "Build OAuth2 with PKCE for API access. Create scope system. Generate personal access tokens.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "api",
+        "auth"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-181"
+      ],
+      "spec_refs": [
+        "08-api/api-design.md",
+        "02-core-features/user-authentication.md"
+      ]
+    },
+    {
+      "id": "LIC-183",
+      "title": "Create API rate limiting",
+      "description": "Implement rate limiting per endpoint and per user. Return rate limit headers. Handle bursting gracefully.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "api"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-181"
+      ],
+      "spec_refs": [
+        "08-api/api-design.md"
+      ]
+    },
+    {
+      "id": "LIC-184",
+      "title": "Build streaming NDJSON endpoints",
+      "description": "Create streaming endpoints for live games and ongoing events. Support real-time data via NDJSON format.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "api"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-181"
+      ],
+      "spec_refs": [
+        "08-api/api-design.md",
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-185",
+      "title": "Create API documentation site",
+      "description": "Build interactive API documentation with examples. Support try-it-out functionality. Host on subdomain.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "api",
+        "docs"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-181"
+      ],
+      "spec_refs": [
+        "08-api/api-design.md"
+      ]
+    },
+    {
+      "id": "LIC-186",
+      "title": "Implement bot API",
+      "description": "Create API endpoints for chess bot integration. Handle bot accounts, challenge acceptance, and move streaming.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "backend",
+        "api"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-181"
+      ],
+      "spec_refs": [
+        "08-api/api-design.md",
+        "02-core-features/real-time-gameplay.md"
+      ]
+    },
+    {
+      "id": "LIC-187",
+      "title": "Build mobile-responsive UI",
+      "description": "Ensure all pages work on mobile devices. Optimize touch interactions for chess board. Handle orientation changes.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "mobile",
+        "ui"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-9"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-188",
+      "title": "Create PWA support",
+      "description": "Add Progressive Web App capabilities. Implement service worker, manifest, and offline support for analysis.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "mobile"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-187"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-189",
+      "title": "Implement push notifications",
+      "description": "Add web push notifications for game challenges, tournament starts, and messages. Handle notification preferences.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "backend",
+        "notifications"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-188"
+      ],
+      "spec_refs": [
+        "01-architecture/websocket-architecture.md",
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-190",
+      "title": "Create performance monitoring dashboard",
+      "description": "Build internal dashboard showing request latency, WebSocket connections, error rates. Alert on anomalies.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "monitoring"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-11"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-191",
+      "title": "Implement database query optimization",
+      "description": "Analyze slow queries with EXPLAIN. Add indexes. Implement query caching. Optimize hot paths.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "database",
+        "performance"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-15"
+      ],
+      "spec_refs": [
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-192",
+      "title": "Build CDN integration",
+      "description": "Configure CDN for static assets. Set up proper cache headers. Implement cache invalidation strategy.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "infrastructure",
+        "performance"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-18"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-193",
+      "title": "Create load testing suite",
+      "description": "Build load tests simulating concurrent games and WebSocket connections. Identify bottlenecks. Set performance baselines.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "testing",
+        "performance"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-19"
+      ],
+      "spec_refs": [
+        "01-architecture/backend-architecture.md",
+        "01-architecture/websocket-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-194",
+      "title": "Implement basic anti-cheat detection",
+      "description": "Create basic cheat detection: move timing analysis, engine move correlation. Flag suspicious games for review.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "backend",
+        "anti-cheat",
+        "moderation"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-81",
+        "LIC-116"
+      ],
+      "spec_refs": [
+        "02-core-features/rating-system.md",
+        "04-training/analysis-board.md"
+      ]
+    },
+    {
+      "id": "LIC-195",
+      "title": "Build admin dashboard",
+      "description": "Create comprehensive admin dashboard for site statistics, user management, and system health.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "frontend",
+        "admin"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-60",
+        "LIC-154"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-196",
+      "title": "Create internationalization (i18n) framework",
+      "description": "Set up translation infrastructure for both frontend and backend. Create initial English strings. Support RTL languages.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "backend",
+        "i18n"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-9"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md",
+        "01-architecture/backend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-197",
+      "title": "Implement SEO optimization",
+      "description": "Add meta tags, structured data, and sitemap. Optimize page load performance. Implement server-side rendering for key pages.",
+      "status": "backlog",
+      "priority": 3,
+      "labels": [
+        "frontend",
+        "seo"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-2"
+      ],
+      "spec_refs": [
+        "01-architecture/frontend-architecture.md"
+      ]
+    },
+    {
+      "id": "LIC-198",
+      "title": "Create backup and disaster recovery plan",
+      "description": "Implement automated database backups. Document recovery procedures. Test restore process. Set up off-site replication.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "infrastructure",
+        "devops"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-15"
+      ],
+      "spec_refs": [
+        "01-architecture/database-schema.md"
+      ]
+    },
+    {
+      "id": "LIC-199",
+      "title": "Build production deployment pipeline",
+      "description": "Create production deployment workflow with staging environment. Implement blue-green deployment. Add rollback capability.",
+      "status": "backlog",
+      "priority": 2,
+      "labels": [
+        "devops",
+        "infrastructure"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-13"
+      ],
+      "spec_refs": [
+        "00-overview/project-overview.md"
+      ]
+    },
+    {
+      "id": "LIC-200",
+      "title": "Conduct security audit and hardening",
+      "description": "Perform security review: OWASP top 10, dependency vulnerabilities, API security. Implement fixes. Document security practices.",
+      "status": "backlog",
+      "priority": 1,
+      "labels": [
+        "security"
+      ],
+      "phase": "phase-9",
+      "dependencies": [
+        "LIC-181",
+        "LIC-43"
+      ],
+      "spec_refs": [
+        "08-api/api-design.md",
+        "02-core-features/user-authentication.md"
+      ]
+    }
+  ],
+  "statistics": {
+    "total_tickets": 200,
+    "by_phase": {
+      "phase-0": 20,
+      "phase-1": 20,
+      "phase-2": 20,
+      "phase-3": 20,
+      "phase-4": 20,
+      "phase-5": 20,
+      "phase-6": 20,
+      "phase-7": 20,
+      "phase-8": 20,
+      "phase-9": 20
+    },
+    "by_priority": {
+      "1": 28,
+      "2": 68,
+      "3": 62,
+      "4": 42
+    },
+    "labels_used": [
+      "backend",
+      "frontend",
+      "infrastructure",
+      "devops",
+      "api",
+      "database",
+      "chess-engine",
+      "chess-ui",
+      "auth",
+      "users",
+      "realtime",
+      "games",
+      "matchmaking",
+      "analysis",
+      "puzzles",
+      "ratings",
+      "tournaments",
+      "teams",
+      "chat",
+      "social",
+      "moderation",
+      "content",
+      "monitoring",
+      "testing",
+      "security",
+      "performance",
+      "mobile",
+      "admin"
+    ]
+  },
+  "metadata": {
+    "created_at": "2025-12-31",
+    "updated_at": "2025-12-31",
+    "version": "1.1",
+    "source_ticket": "DJA-49",
+    "notes": "Tickets organized into 10 phases with logical dependencies. Each phase builds on previous phases. Priorities: 1=Critical, 2=High, 3=Medium, 4=Low.",
+    "implementation_patterns": {
+      "backend": {
+        "styleguide": "Hacksoft Django Styleguide",
+        "skill": "/hacksoft-django-styleguide",
+        "init_skill": "/init-django-backend",
+        "architecture": {
+          "models": "Data structure, simple validation, properties only",
+          "services": "Write operations with full_clean()/save(), @transaction.atomic, keyword-only args (*)",
+          "selectors": "Read operations, data fetching",
+          "apis": "APIView pattern (not ViewSets), InputSerializer/OutputSerializer",
+          "tasks": "Celery tasks calling services"
+        }
+      },
+      "frontend": {
+        "styleguide": "Bulletproof React",
+        "skill": "/bulletproof-react-styleguide",
+        "architecture": {
+          "structure": "Feature-based (src/features/[name]/)",
+          "imports": "Direct imports only, no barrel files",
+          "server_state": "TanStack Query with three-part pattern (schema, fetcher, hook)",
+          "forms": "React Hook Form + Zod validation",
+          "components": "shadcn/ui + Tailwind CSS",
+          "state_decision_tree": "URL \u2192 Server \u2192 Local \u2192 Global \u2192 Context \u2192 Form"
+        }
+      },
+      "workflow": {
+        "harness": "autonomous-harness ticket-driven workflow",
+        "phases": [
+          "research",
+          "plan",
+          "implement",
+          "validate"
+        ],
+        "commands": {
+          "research": "/research_codebase_auto",
+          "plan": "/create_plan_auto",
+          "validate_django": "/validate_django_plan_auto",
+          "validate_react": "/validate_react_plan_auto",
+          "implement": "/implement_plan_auto",
+          "validate": "/validate_plan_auto"
+        }
+      }
+    }
+  }
+}
