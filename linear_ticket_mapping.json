@@ -1,0 +1,1202 @@
+[
+  {
+    "json_id": "LIC-1",
+    "linear_id": "2a7780c3-4d9d-4ba9-956e-2fc0fd413ebf",
+    "identifier": "CHE-1",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-1/initialize-django-project-using-init-django-backend-skill"
+  },
+  {
+    "json_id": "LIC-2",
+    "linear_id": "fa62ee16-7140-4c4b-9c8d-a08f81c93d7c",
+    "identifier": "CHE-2",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-2/initialize-react-frontend-following-bulletproof-react-patterns"
+  },
+  {
+    "json_id": "LIC-3",
+    "linear_id": "7c521b03-2413-46d6-9803-d55fd08f84fa",
+    "identifier": "CHE-3",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-3/configure-docker-compose-for-full-stack-development"
+  },
+  {
+    "json_id": "LIC-4",
+    "linear_id": "a7858620-fd98-46ba-917e-780871ef7dd3",
+    "identifier": "CHE-4",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-4/set-up-django-rest-framework-with-hacksoft-api-patterns"
+  },
+  {
+    "json_id": "LIC-5",
+    "linear_id": "da1c1fb2-c8e1-4ccd-ac3d-3c8b57d563bc",
+    "identifier": "CHE-5",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-5/configure-cors-and-api-client-for-frontend-backend-communication"
+  },
+  {
+    "json_id": "LIC-6",
+    "linear_id": "8a564c8a-075b-470d-b104-2cc9b1de3c16",
+    "identifier": "CHE-6",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-6/set-up-redis-caching-layer"
+  },
+  {
+    "json_id": "LIC-7",
+    "linear_id": "66fbb8c5-a040-4ffc-98b9-b0a047933ef4",
+    "identifier": "CHE-7",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-7/create-base-django-models-following-hacksoft-patterns"
+  },
+  {
+    "json_id": "LIC-8",
+    "linear_id": "7365832b-342f-4ada-8861-ac74369538bd",
+    "identifier": "CHE-8",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-8/set-up-celery-for-background-task-processing"
+  },
+  {
+    "json_id": "LIC-9",
+    "linear_id": "6b7e95db-6b58-49dd-9a1f-1937b68e6be2",
+    "identifier": "CHE-9",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-9/set-up-shadcnui-component-library-with-bulletproof-structure"
+  },
+  {
+    "json_id": "LIC-10",
+    "linear_id": "3b97abe7-f569-4625-a40f-976b1e2ee9ae",
+    "identifier": "CHE-10",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-10/configure-state-management-following-bulletproof-six-state-pattern"
+  },
+  {
+    "json_id": "LIC-11",
+    "linear_id": "8b7ee4e2-e356-4c38-aaac-be5a1b39e6d4",
+    "identifier": "CHE-11",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-11/set-up-logging-and-error-tracking"
+  },
+  {
+    "json_id": "LIC-12",
+    "linear_id": "aa77cd19-4ce9-42fc-9c6e-a4f6ab9776f7",
+    "identifier": "CHE-12",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-12/create-health-check-endpoints"
+  },
+  {
+    "json_id": "LIC-13",
+    "linear_id": "2a0a1880-c21c-42e1-9da8-3ce7d72e3502",
+    "identifier": "CHE-13",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-13/set-up-cicd-pipeline-with-github-actions"
+  },
+  {
+    "json_id": "LIC-14",
+    "linear_id": "99ab1008-0deb-415d-ae7c-c802b00e7722",
+    "identifier": "CHE-14",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-14/configure-environment-variable-management"
+  },
+  {
+    "json_id": "LIC-15",
+    "linear_id": "d062e373-999a-44cd-9869-cef2fdf2f9cf",
+    "identifier": "CHE-15",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-15/set-up-database-connection-pooling"
+  },
+  {
+    "json_id": "LIC-16",
+    "linear_id": "83960e66-1805-41f2-afeb-cd70ab6274bd",
+    "identifier": "CHE-16",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-16/create-django-apps-following-hacksoft-structure"
+  },
+  {
+    "json_id": "LIC-17",
+    "linear_id": "a43bdda0-2264-4169-ad00-5d8a934f0583",
+    "identifier": "CHE-17",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-17/set-up-react-feature-modules-following-bulletproof-structure"
+  },
+  {
+    "json_id": "LIC-18",
+    "linear_id": "cfce9630-6648-4445-99b5-23f1f34c33c4",
+    "identifier": "CHE-18",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-18/configure-nginx-reverse-proxy"
+  },
+  {
+    "json_id": "LIC-19",
+    "linear_id": "3416af0d-e9dd-47a8-acac-b50fcdca0dd6",
+    "identifier": "CHE-19",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-19/set-up-testing-infrastructure"
+  },
+  {
+    "json_id": "LIC-20",
+    "linear_id": "81f7b71a-943d-41c9-867c-dbb91e192f7c",
+    "identifier": "CHE-20",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-20/create-development-seed-data-scripts"
+  },
+  {
+    "json_id": "LIC-21",
+    "linear_id": "182564a1-20b2-46f4-bb5f-1ac678406230",
+    "identifier": "CHE-21",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-21/integrate-python-chess-library-with-hacksoft-service-pattern"
+  },
+  {
+    "json_id": "LIC-22",
+    "linear_id": "f9df1396-e555-4746-8663-7c0dd38592b8",
+    "identifier": "CHE-22",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-22/create-board-model-and-fen-handling"
+  },
+  {
+    "json_id": "LIC-23",
+    "linear_id": "2d93d477-876c-4e86-8d8e-955a061c5362",
+    "identifier": "CHE-23",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-23/implement-move-validation-service-functions"
+  },
+  {
+    "json_id": "LIC-24",
+    "linear_id": "25d32028-9f07-4773-9cdd-072add12b14b",
+    "identifier": "CHE-24",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-24/create-legal-move-generation-service"
+  },
+  {
+    "json_id": "LIC-25",
+    "linear_id": "ff81b954-f6d0-48b1-986f-8c1455ee8c0b",
+    "identifier": "CHE-25",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-25/implement-game-outcome-detection"
+  },
+  {
+    "json_id": "LIC-26",
+    "linear_id": "ff87a21e-7c11-4927-bd18-3050f0c191bc",
+    "identifier": "CHE-26",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-26/create-pgn-parsing-and-export-service"
+  },
+  {
+    "json_id": "LIC-27",
+    "linear_id": "cdbc7fa5-e1e0-4086-b7a1-ad39887df818",
+    "identifier": "CHE-27",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-27/integrate-chessground-in-game-feature-following-bulletproof-patterns"
+  },
+  {
+    "json_id": "LIC-28",
+    "linear_id": "8a23606a-3510-43d8-9f6e-b7e1b8baa00b",
+    "identifier": "CHE-28",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-28/create-chessboard-react-component"
+  },
+  {
+    "json_id": "LIC-29",
+    "linear_id": "5245b4a0-fad3-4869-a830-7d36d563028e",
+    "identifier": "CHE-29",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-29/implement-move-input-handling-in-frontend"
+  },
+  {
+    "json_id": "LIC-30",
+    "linear_id": "9b012a1b-c9f3-4dbd-a90c-3913336ff459",
+    "identifier": "CHE-30",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-30/create-promotion-dialog-component"
+  },
+  {
+    "json_id": "LIC-31",
+    "linear_id": "69f76847-17aa-412a-92f5-4078fd431b9c",
+    "identifier": "CHE-31",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-31/build-move-list-component"
+  },
+  {
+    "json_id": "LIC-32",
+    "linear_id": "ca61b2d9-a962-4ba8-b514-380a4faaf991",
+    "identifier": "CHE-32",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-32/implement-check-and-checkmate-indicators"
+  },
+  {
+    "json_id": "LIC-33",
+    "linear_id": "cb19bc70-7346-4967-a891-87b560aaeb8f",
+    "identifier": "CHE-33",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-33/create-captured-pieces-display-component"
+  },
+  {
+    "json_id": "LIC-34",
+    "linear_id": "9618b3e1-1020-4a01-bf71-24af26d98b2d",
+    "identifier": "CHE-34",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-34/implement-board-theme-and-piece-set-selection"
+  },
+  {
+    "json_id": "LIC-35",
+    "linear_id": "4fb905f8-63ed-4c08-8897-1b629c275620",
+    "identifier": "CHE-35",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-35/create-chess-variant-model-infrastructure"
+  },
+  {
+    "json_id": "LIC-36",
+    "linear_id": "186d5b3a-827f-4530-b3b3-97950fc65fd7",
+    "identifier": "CHE-36",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-36/implement-chess960-support"
+  },
+  {
+    "json_id": "LIC-37",
+    "linear_id": "2a163186-0aa9-473c-b7e6-87cf86546a1c",
+    "identifier": "CHE-37",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-37/create-position-evaluation-display-component"
+  },
+  {
+    "json_id": "LIC-38",
+    "linear_id": "90993c34-a838-4a5e-82f3-73497517f9df",
+    "identifier": "CHE-38",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-38/implement-board-coordinate-toggle"
+  },
+  {
+    "json_id": "LIC-39",
+    "linear_id": "c7e41f78-49f3-4850-b4cd-b46159d8571d",
+    "identifier": "CHE-39",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-39/create-move-annotation-support"
+  },
+  {
+    "json_id": "LIC-40",
+    "linear_id": "166011b4-5503-4bcb-aedd-771852eb5a9a",
+    "identifier": "CHE-40",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-40/implement-board-arrows-and-highlights-drawing"
+  },
+  {
+    "json_id": "LIC-41",
+    "linear_id": "35ad13b7-cdf1-402e-abda-5a186ca45717",
+    "identifier": "CHE-41",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-41/create-user-model-with-chess-specific-fields"
+  },
+  {
+    "json_id": "LIC-42",
+    "linear_id": "d889238f-4159-4ceb-be83-48901d3fa23f",
+    "identifier": "CHE-42",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-42/implement-user-registration-with-hacksoft-service-pattern"
+  },
+  {
+    "json_id": "LIC-43",
+    "linear_id": "c6c6954d-8b64-4a57-863e-b7520c4302b1",
+    "identifier": "CHE-43",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-43/create-login-and-logout-functionality"
+  },
+  {
+    "json_id": "LIC-44",
+    "linear_id": "8132b67c-3c3c-4778-b282-0442dd80cb96",
+    "identifier": "CHE-44",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-44/build-auth-feature-with-bulletproof-provider-pattern"
+  },
+  {
+    "json_id": "LIC-45",
+    "linear_id": "84df3c44-d3da-47e1-8fbd-8243e9ff5386",
+    "identifier": "CHE-45",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-45/create-login-and-registration-forms-with-react-hook-form-zod"
+  },
+  {
+    "json_id": "LIC-46",
+    "linear_id": "96af623d-739c-4ca3-9985-65043637edce",
+    "identifier": "CHE-46",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-46/implement-password-reset-flow"
+  },
+  {
+    "json_id": "LIC-47",
+    "linear_id": "9302e2b1-cc55-46ea-b860-8614545743dc",
+    "identifier": "CHE-47",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-47/create-user-profile-page"
+  },
+  {
+    "json_id": "LIC-48",
+    "linear_id": "66b31f1f-781e-40ae-810f-4f5d54fd7812",
+    "identifier": "CHE-48",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-48/build-user-settings-page"
+  },
+  {
+    "json_id": "LIC-49",
+    "linear_id": "8619edd6-20e4-42f3-bdc8-4f2e4e82adb3",
+    "identifier": "CHE-49",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-49/create-userpreferences-model"
+  },
+  {
+    "json_id": "LIC-50",
+    "linear_id": "ec76b17a-87fa-45fc-9d57-bb7b7f2ebb05",
+    "identifier": "CHE-50",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-50/implement-account-deletion"
+  },
+  {
+    "json_id": "LIC-51",
+    "linear_id": "8960783e-11b7-457b-88f7-4b2ce8b21670",
+    "identifier": "CHE-51",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-51/create-user-search-functionality"
+  },
+  {
+    "json_id": "LIC-52",
+    "linear_id": "189ff839-d467-4c06-9560-232b270900ca",
+    "identifier": "CHE-52",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-52/implement-user-blocking"
+  },
+  {
+    "json_id": "LIC-53",
+    "linear_id": "7e023408-f436-4f11-b79d-814f7317ca25",
+    "identifier": "CHE-53",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-53/create-followingfollowers-system"
+  },
+  {
+    "json_id": "LIC-54",
+    "linear_id": "658e8150-f42d-41f7-b057-b4536deade8b",
+    "identifier": "CHE-54",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-54/build-user-activity-feed"
+  },
+  {
+    "json_id": "LIC-55",
+    "linear_id": "efcb9b51-b641-4e0c-8ea9-d476d2e8ab04",
+    "identifier": "CHE-55",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-55/implement-titled-player-verification"
+  },
+  {
+    "json_id": "LIC-56",
+    "linear_id": "8d0f6a4a-7367-4881-b622-20c1a4e950ec",
+    "identifier": "CHE-56",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-56/create-avatarprofile-picture-support"
+  },
+  {
+    "json_id": "LIC-57",
+    "linear_id": "9ff5a1dd-672b-4aca-8cf8-68c62a306ddd",
+    "identifier": "CHE-57",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-57/implement-session-management"
+  },
+  {
+    "json_id": "LIC-58",
+    "linear_id": "da6e6941-ef2d-4d66-8e71-78de66325237",
+    "identifier": "CHE-58",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-58/create-email-preferences-management"
+  },
+  {
+    "json_id": "LIC-59",
+    "linear_id": "aead78c6-a2d1-4e61-9e8c-a040ac2e4286",
+    "identifier": "CHE-59",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-59/implement-kid-mode"
+  },
+  {
+    "json_id": "LIC-60",
+    "linear_id": "28cf18d4-e82e-4151-a6c0-0e8ed7898008",
+    "identifier": "CHE-60",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-60/create-user-roles-and-permissions-system"
+  },
+  {
+    "json_id": "LIC-61",
+    "linear_id": "92e0b0a6-49f6-44d8-a0d3-4e96ea065ee9",
+    "identifier": "CHE-61",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-61/install-and-configure-django-channels"
+  },
+  {
+    "json_id": "LIC-62",
+    "linear_id": "1525d06a-2c49-4afe-a3ab-2dd62f8d5e04",
+    "identifier": "CHE-62",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-62/create-websocket-authentication"
+  },
+  {
+    "json_id": "LIC-63",
+    "linear_id": "4b66b352-c5af-4847-9898-07e477cd7224",
+    "identifier": "CHE-63",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-63/build-game-room-consumer"
+  },
+  {
+    "json_id": "LIC-64",
+    "linear_id": "e1051c3a-5d08-4f87-8b7e-0cfb5c134824",
+    "identifier": "CHE-64",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-64/create-websocket-hooks-following-bulletproof-patterns"
+  },
+  {
+    "json_id": "LIC-65",
+    "linear_id": "028656d1-2fcf-4131-83d9-441d028ece6d",
+    "identifier": "CHE-65",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-65/create-game-state-synchronization-protocol"
+  },
+  {
+    "json_id": "LIC-66",
+    "linear_id": "befdb5ac-3449-480a-a2da-d9049e2b3725",
+    "identifier": "CHE-66",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-66/implement-lobbymatchmaking-consumer"
+  },
+  {
+    "json_id": "LIC-67",
+    "linear_id": "45b39e13-aeb9-4f4a-9d7e-e0cd925b7196",
+    "identifier": "CHE-67",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-67/build-presence-tracking-system"
+  },
+  {
+    "json_id": "LIC-68",
+    "linear_id": "5430e8b5-676f-4568-a721-bef807b6c71f",
+    "identifier": "CHE-68",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-68/create-connection-recovery-and-reconnection-logic"
+  },
+  {
+    "json_id": "LIC-69",
+    "linear_id": "89eeb297-735e-43bf-93ad-edb176b6b355",
+    "identifier": "CHE-69",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-69/implement-spectator-mode-websocket"
+  },
+  {
+    "json_id": "LIC-70",
+    "linear_id": "1af18bbc-3004-4a6e-9b10-f57f7560f520",
+    "identifier": "CHE-70",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-70/build-real-time-notification-system"
+  },
+  {
+    "json_id": "LIC-71",
+    "linear_id": "1dc183d1-c6b3-4626-97aa-ad5ee1ddcd41",
+    "identifier": "CHE-71",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-71/create-game-seek-broadcasting"
+  },
+  {
+    "json_id": "LIC-72",
+    "linear_id": "8616dbb0-a50f-4de1-b98d-31004f9a90b2",
+    "identifier": "CHE-72",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-72/implement-lag-compensation"
+  },
+  {
+    "json_id": "LIC-73",
+    "linear_id": "411136eb-1f7d-4334-a5bf-3053b77b04c3",
+    "identifier": "CHE-73",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-73/build-tournament-live-updates-consumer"
+  },
+  {
+    "json_id": "LIC-74",
+    "linear_id": "bc25d695-76a7-404f-8c9a-8f75ea6632c1",
+    "identifier": "CHE-74",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-74/create-challenge-system-websocket"
+  },
+  {
+    "json_id": "LIC-75",
+    "linear_id": "1291ac1d-f6c0-45d7-88e5-2051f1bd1881",
+    "identifier": "CHE-75",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-75/implement-connection-rate-limiting"
+  },
+  {
+    "json_id": "LIC-76",
+    "linear_id": "b8a047cd-2ef1-4aff-aa48-f2cd74109857",
+    "identifier": "CHE-76",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-76/create-websocket-message-validation"
+  },
+  {
+    "json_id": "LIC-77",
+    "linear_id": "5f1d4b54-2c6d-4272-806e-bcc38da38e51",
+    "identifier": "CHE-77",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-77/build-connection-metrics-and-monitoring"
+  },
+  {
+    "json_id": "LIC-78",
+    "linear_id": "a4874432-bb92-4813-8648-4e56e16edddc",
+    "identifier": "CHE-78",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-78/implement-typing-indicator-for-chat"
+  },
+  {
+    "json_id": "LIC-79",
+    "linear_id": "11ea7f2c-efcb-4c46-be86-94fdce7871bc",
+    "identifier": "CHE-79",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-79/create-horizontal-scaling-support-for-channels"
+  },
+  {
+    "json_id": "LIC-80",
+    "linear_id": "140c2817-14d9-4f8c-bfbe-20129e5aeea1",
+    "identifier": "CHE-80",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-80/build-websocket-connection-debugging-tools"
+  },
+  {
+    "json_id": "LIC-81",
+    "linear_id": "ac82a07f-3237-4df1-87f8-fda37d9cb591",
+    "identifier": "CHE-81",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-81/create-game-model-following-hacksoft-patterns"
+  },
+  {
+    "json_id": "LIC-82",
+    "linear_id": "740be2a1-bccc-4bce-b3e7-89a990268441",
+    "identifier": "CHE-82",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-82/implement-time-control-model"
+  },
+  {
+    "json_id": "LIC-83",
+    "linear_id": "66c5243f-6e89-4bd4-af5b-0594ab276e8b",
+    "identifier": "CHE-83",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-83/build-server-side-clock-management"
+  },
+  {
+    "json_id": "LIC-84",
+    "linear_id": "2d318d3c-34ad-41a7-bcaa-67334a5e19ea",
+    "identifier": "CHE-84",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-84/create-client-side-clock-display-component"
+  },
+  {
+    "json_id": "LIC-85",
+    "linear_id": "bdc9d559-8e65-4713-84ad-388782c7e425",
+    "identifier": "CHE-85",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-85/implement-game-creation-service-with-hacksoft-pattern"
+  },
+  {
+    "json_id": "LIC-86",
+    "linear_id": "23630a10-39d3-4c28-a513-a96e3ab8da18",
+    "identifier": "CHE-86",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-86/build-game-seek-system"
+  },
+  {
+    "json_id": "LIC-87",
+    "linear_id": "1e398559-c9f9-4fd1-9645-1df850b5b116",
+    "identifier": "CHE-87",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-87/create-quick-pairing-matchmaking"
+  },
+  {
+    "json_id": "LIC-88",
+    "linear_id": "9cfacdc2-5239-40fc-9d77-9b5b461388c2",
+    "identifier": "CHE-88",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-88/build-game-lobby-ui"
+  },
+  {
+    "json_id": "LIC-89",
+    "linear_id": "211f5af3-e22f-4471-955f-53b97c46c5d0",
+    "identifier": "CHE-89",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-89/implement-challenge-system"
+  },
+  {
+    "json_id": "LIC-90",
+    "linear_id": "a52b4447-5ba2-46da-bc38-1773476eafea",
+    "identifier": "CHE-90",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-90/create-live-game-page-following-bulletproof-patterns"
+  },
+  {
+    "json_id": "LIC-91",
+    "linear_id": "5c80e995-2444-4da5-ac91-6c84a7e2fb4b",
+    "identifier": "CHE-91",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-91/implement-draw-offer-system"
+  },
+  {
+    "json_id": "LIC-92",
+    "linear_id": "fb3b1d4b-b88e-40d6-ac18-77f51941ac98",
+    "identifier": "CHE-92",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-92/create-resignation-functionality"
+  },
+  {
+    "json_id": "LIC-93",
+    "linear_id": "c1401d5d-7c2f-44c2-8d0e-fdfb1cdb9254",
+    "identifier": "CHE-93",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-93/implement-game-abort-rules"
+  },
+  {
+    "json_id": "LIC-94",
+    "linear_id": "42b90c3a-07e0-4e47-9fbe-3026e3507750",
+    "identifier": "CHE-94",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-94/create-rematch-system"
+  },
+  {
+    "json_id": "LIC-95",
+    "linear_id": "c2bfcf51-91d8-4e04-a69b-6c020d2dd4e0",
+    "identifier": "CHE-95",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-95/build-game-result-display"
+  },
+  {
+    "json_id": "LIC-96",
+    "linear_id": "e19caf07-6e97-4837-b49d-7f6170c9e1c4",
+    "identifier": "CHE-96",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-96/implement-correspondence-game-support"
+  },
+  {
+    "json_id": "LIC-97",
+    "linear_id": "e4d1a16f-152f-451a-ac2b-bd53ea39c805",
+    "identifier": "CHE-97",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-97/create-game-history-page"
+  },
+  {
+    "json_id": "LIC-98",
+    "linear_id": "4fb96244-c446-4d80-8f01-10df79817223",
+    "identifier": "CHE-98",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-98/implement-pre-moves"
+  },
+  {
+    "json_id": "LIC-99",
+    "linear_id": "fe35a951-f5eb-4daf-8b0b-91c470e29331",
+    "identifier": "CHE-99",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-99/create-takebacks-request-system"
+  },
+  {
+    "json_id": "LIC-100",
+    "linear_id": "f0ee82d8-51e9-4e46-99c9-5d337e491cab",
+    "identifier": "CHE-100",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-100/build-game-export-functionality"
+  },
+  {
+    "json_id": "LIC-101",
+    "linear_id": "fdfc0423-0393-4c68-a144-a570ed66193a",
+    "identifier": "CHE-101",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-101/integrate-stockfishjs-for-browser-analysis"
+  },
+  {
+    "json_id": "LIC-102",
+    "linear_id": "9b46a925-1080-48a2-bcb0-66477c22619e",
+    "identifier": "CHE-102",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-102/create-analysis-board-page"
+  },
+  {
+    "json_id": "LIC-103",
+    "linear_id": "f4c2358e-8597-4567-8f21-30b8f0f3eb3c",
+    "identifier": "CHE-103",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-103/implement-engine-depth-and-multipv-settings"
+  },
+  {
+    "json_id": "LIC-104",
+    "linear_id": "c7d10bed-9b6c-42f9-bba2-bbead70b891a",
+    "identifier": "CHE-104",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-104/build-variation-tree-display"
+  },
+  {
+    "json_id": "LIC-105",
+    "linear_id": "5e59e0fd-d146-443d-8c84-27330043b57e",
+    "identifier": "CHE-105",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-105/create-puzzle-model"
+  },
+  {
+    "json_id": "LIC-106",
+    "linear_id": "9d8c6a88-1ffb-4282-8e8e-ba38918f91f8",
+    "identifier": "CHE-106",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-106/build-puzzle-player-ui"
+  },
+  {
+    "json_id": "LIC-107",
+    "linear_id": "586be212-240d-4201-b949-c82701ab72c6",
+    "identifier": "CHE-107",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-107/implement-puzzle-rating-system"
+  },
+  {
+    "json_id": "LIC-108",
+    "linear_id": "4364772b-7c25-4a3f-bc8a-c23163ac52bc",
+    "identifier": "CHE-108",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-108/create-puzzle-themestags-system"
+  },
+  {
+    "json_id": "LIC-109",
+    "linear_id": "db4d0be5-d9eb-4961-870b-552f1bbab348",
+    "identifier": "CHE-109",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-109/build-puzzle-streak-mode"
+  },
+  {
+    "json_id": "LIC-110",
+    "linear_id": "7ac6fb24-f13c-40d8-bd86-4ec45459151a",
+    "identifier": "CHE-110",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-110/implement-puzzle-storm-mode"
+  },
+  {
+    "json_id": "LIC-111",
+    "linear_id": "7cb25026-06c3-4214-87f9-fdb7a8502d9d",
+    "identifier": "CHE-111",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-111/create-puzzle-dashboard"
+  },
+  {
+    "json_id": "LIC-112",
+    "linear_id": "8fd32247-653c-412a-a753-80f609988d70",
+    "identifier": "CHE-112",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-112/import-lichess-puzzle-database"
+  },
+  {
+    "json_id": "LIC-113",
+    "linear_id": "854d6286-708f-49e0-bb7b-eadbd1c09e6d",
+    "identifier": "CHE-113",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-113/build-learn-section-basics-page"
+  },
+  {
+    "json_id": "LIC-114",
+    "linear_id": "ab0d5f14-f66b-4629-ad13-26d370f68f34",
+    "identifier": "CHE-114",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-114/implement-coordinate-training"
+  },
+  {
+    "json_id": "LIC-115",
+    "linear_id": "2ebe4335-aa50-4495-bdf2-b2eec588be98",
+    "identifier": "CHE-115",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-115/create-practice-positions-feature"
+  },
+  {
+    "json_id": "LIC-116",
+    "linear_id": "1927fd30-1980-41bc-a079-cd0af9b7298f",
+    "identifier": "CHE-116",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-116/build-server-side-analysis-with-fishnet"
+  },
+  {
+    "json_id": "LIC-117",
+    "linear_id": "0f3bbdd1-ad1b-4479-a8c0-7a392ce63d61",
+    "identifier": "CHE-117",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-117/implement-game-analysis-request"
+  },
+  {
+    "json_id": "LIC-118",
+    "linear_id": "b30f16f2-61f7-485a-a573-b8bcbe547f3c",
+    "identifier": "CHE-118",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-118/create-accuracy-percentage-calculation"
+  },
+  {
+    "json_id": "LIC-119",
+    "linear_id": "d3739f1e-f093-40c8-b626-7eeaf8dd6fff",
+    "identifier": "CHE-119",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-119/build-insightsstatistics-page"
+  },
+  {
+    "json_id": "LIC-120",
+    "linear_id": "2ee371f8-317d-46d8-81f6-606ae3ff3c4d",
+    "identifier": "CHE-120",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-120/implement-retrograde-analysis-display"
+  },
+  {
+    "json_id": "LIC-121",
+    "linear_id": "b8f513a3-fd45-4cfb-9f2f-16e2d3c5076e",
+    "identifier": "CHE-121",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-121/create-rating-model-with-glicko-2-support"
+  },
+  {
+    "json_id": "LIC-122",
+    "linear_id": "a972ddef-69d8-4e60-b6ef-d4c82e8caafa",
+    "identifier": "CHE-122",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-122/implement-glicko-2-rating-calculation"
+  },
+  {
+    "json_id": "LIC-123",
+    "linear_id": "a49327a5-f13e-4f7b-adcc-004289549295",
+    "identifier": "CHE-123",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-123/create-rating-deviation-management"
+  },
+  {
+    "json_id": "LIC-124",
+    "linear_id": "4453a65a-b613-44b0-bae4-2588f06fadb0",
+    "identifier": "CHE-124",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-124/build-leaderboards"
+  },
+  {
+    "json_id": "LIC-125",
+    "linear_id": "ba553c63-4018-47e6-b10a-39643d3c6bda",
+    "identifier": "CHE-125",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-125/create-tournament-model"
+  },
+  {
+    "json_id": "LIC-126",
+    "linear_id": "d2aac38c-9f6b-43cb-8843-7dcd59762cdb",
+    "identifier": "CHE-126",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-126/implement-arena-tournament-format"
+  },
+  {
+    "json_id": "LIC-127",
+    "linear_id": "603d92d8-36b6-41cc-ad4c-6d4095df4bda",
+    "identifier": "CHE-127",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-127/build-arena-pairing-algorithm"
+  },
+  {
+    "json_id": "LIC-128",
+    "linear_id": "81a67902-1a9a-424a-bf8d-bacfe4f09576",
+    "identifier": "CHE-128",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-128/create-tournament-lobby-ui"
+  },
+  {
+    "json_id": "LIC-129",
+    "linear_id": "7b88be5b-d027-498e-96d3-5f0da2d26ea5",
+    "identifier": "CHE-129",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-129/implement-tournament-standings-display"
+  },
+  {
+    "json_id": "LIC-130",
+    "linear_id": "6ad36a61-ddef-4c0e-a900-764ee58cefc7",
+    "identifier": "CHE-130",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-130/build-tournament-creation-ui"
+  },
+  {
+    "json_id": "LIC-131",
+    "linear_id": "53823689-dd58-4dc0-90cb-7199bd66c7c1",
+    "identifier": "CHE-131",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-131/implement-swiss-tournament-format"
+  },
+  {
+    "json_id": "LIC-132",
+    "linear_id": "70b46a72-fc63-4ec7-8626-fff91904e505",
+    "identifier": "CHE-132",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-132/create-swiss-pairing-algorithm"
+  },
+  {
+    "json_id": "LIC-133",
+    "linear_id": "e91572fb-02a1-4f34-957e-6c43e84def95",
+    "identifier": "CHE-133",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-133/build-tournament-calendar"
+  },
+  {
+    "json_id": "LIC-134",
+    "linear_id": "d6162081-4508-4b1f-92ec-a7083c567a5e",
+    "identifier": "CHE-134",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-134/implement-tournament-tiebreaks"
+  },
+  {
+    "json_id": "LIC-135",
+    "linear_id": "379ab202-0316-40d3-8f12-f743bbf2ad3e",
+    "identifier": "CHE-135",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-135/create-tournament-history-page"
+  },
+  {
+    "json_id": "LIC-136",
+    "linear_id": "d86be945-4a16-4efb-b153-f735f4edfad3",
+    "identifier": "CHE-136",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-136/implement-tournament-prizes-display"
+  },
+  {
+    "json_id": "LIC-137",
+    "linear_id": "8cfb372f-9567-4f02-876f-0941fa6851c2",
+    "identifier": "CHE-137",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-137/create-rating-graph-component"
+  },
+  {
+    "json_id": "LIC-138",
+    "linear_id": "6f066d2f-eb03-4715-8677-18e52a83a5e2",
+    "identifier": "CHE-138",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-138/implement-rating-percentile-display"
+  },
+  {
+    "json_id": "LIC-139",
+    "linear_id": "75d71d28-f2fc-439c-bce4-be2f82b3086d",
+    "identifier": "CHE-139",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-139/build-simul-simultaneous-exhibition-support"
+  },
+  {
+    "json_id": "LIC-140",
+    "linear_id": "d28b3927-73a8-4fe9-8408-d51b36fc83cb",
+    "identifier": "CHE-140",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-140/create-tournament-notification-system"
+  },
+  {
+    "json_id": "LIC-141",
+    "linear_id": "13abd8c0-4509-499e-94dc-7b567e37555e",
+    "identifier": "CHE-141",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-141/create-team-model"
+  },
+  {
+    "json_id": "LIC-142",
+    "linear_id": "94afa4b3-fa39-4d6c-b013-0898cf6c76d2",
+    "identifier": "CHE-142",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-142/build-team-creation-and-management"
+  },
+  {
+    "json_id": "LIC-143",
+    "linear_id": "dd3eb485-ba77-4ad0-8762-bd5a8caca56e",
+    "identifier": "CHE-143",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-143/create-team-page-ui"
+  },
+  {
+    "json_id": "LIC-144",
+    "linear_id": "a45d5905-888d-4641-92ae-7fd132f06b7b",
+    "identifier": "CHE-144",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-144/implement-team-battles"
+  },
+  {
+    "json_id": "LIC-145",
+    "linear_id": "1311acef-0be4-436e-ac75-00f1062e4a23",
+    "identifier": "CHE-145",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-145/create-chat-room-model"
+  },
+  {
+    "json_id": "LIC-146",
+    "linear_id": "92c0bfe1-bf74-40d5-8aa9-2a84e53d2625",
+    "identifier": "CHE-146",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-146/build-real-time-chat-component"
+  },
+  {
+    "json_id": "LIC-147",
+    "linear_id": "e6e96214-24cd-4ab4-862c-647a0b119b49",
+    "identifier": "CHE-147",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-147/implement-game-chat"
+  },
+  {
+    "json_id": "LIC-148",
+    "linear_id": "a0a6bedb-311b-420a-a80f-cff180fe6acf",
+    "identifier": "CHE-148",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-148/create-direct-messaging-system"
+  },
+  {
+    "json_id": "LIC-149",
+    "linear_id": "a0f0891b-6d05-4b07-bb39-626ef7aa721a",
+    "identifier": "CHE-149",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-149/build-chat-moderation-tools"
+  },
+  {
+    "json_id": "LIC-150",
+    "linear_id": "ec854884-d5f3-4367-885d-0ca7c1e79c15",
+    "identifier": "CHE-150",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-150/implement-friend-system"
+  },
+  {
+    "json_id": "LIC-151",
+    "linear_id": "cae6a86c-bd9b-447f-b553-32eb8c114acd",
+    "identifier": "CHE-151",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-151/build-forum-system"
+  },
+  {
+    "json_id": "LIC-152",
+    "linear_id": "e2c3fcf1-1168-4342-ab99-306aab66dcf2",
+    "identifier": "CHE-152",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-152/create-blogarticle-publishing"
+  },
+  {
+    "json_id": "LIC-153",
+    "linear_id": "8635027d-fbc8-40c5-8426-d0fd72e93574",
+    "identifier": "CHE-153",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-153/implement-reporting-system"
+  },
+  {
+    "json_id": "LIC-154",
+    "linear_id": "ee337010-0d83-45a2-8e50-1be86f0e69d8",
+    "identifier": "CHE-154",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-154/build-moderation-dashboard"
+  },
+  {
+    "json_id": "LIC-155",
+    "linear_id": "b0498668-e582-4d01-81d0-83e49b8f57d7",
+    "identifier": "CHE-155",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-155/implement-user-banning-system"
+  },
+  {
+    "json_id": "LIC-156",
+    "linear_id": "b4a1f443-cfe8-407f-9d89-c7fc9014c0b7",
+    "identifier": "CHE-156",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-156/create-notesgame-comments-system"
+  },
+  {
+    "json_id": "LIC-157",
+    "linear_id": "8a251ead-2a77-4410-a0fb-45338ec8de27",
+    "identifier": "CHE-157",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-157/build-user-search-with-filters"
+  },
+  {
+    "json_id": "LIC-158",
+    "linear_id": "af2510eb-d15c-4c71-a9e8-ab44e6564457",
+    "identifier": "CHE-158",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-158/implement-flairbadge-system"
+  },
+  {
+    "json_id": "LIC-159",
+    "linear_id": "f780dae6-9081-4036-821c-7595386aa47c",
+    "identifier": "CHE-159",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-159/create-team-tournaments"
+  },
+  {
+    "json_id": "LIC-160",
+    "linear_id": "56ea73be-ef7c-4afb-a6dc-400dee82867b",
+    "identifier": "CHE-160",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-160/build-team-forumdiscussion-area"
+  },
+  {
+    "json_id": "LIC-161",
+    "linear_id": "6c99d957-6fce-4702-b400-4c7d2ecdc3a2",
+    "identifier": "CHE-161",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-161/integrate-opening-explorer-api"
+  },
+  {
+    "json_id": "LIC-162",
+    "linear_id": "f18d58be-1b72-441e-95c8-e5453ecfb3b7",
+    "identifier": "CHE-162",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-162/build-opening-explorer-ui"
+  },
+  {
+    "json_id": "LIC-163",
+    "linear_id": "6be6ccfc-55fd-4773-bc0e-f59016847fc8",
+    "identifier": "CHE-163",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-163/create-opening-classification-system"
+  },
+  {
+    "json_id": "LIC-164",
+    "linear_id": "56aba154-507d-4633-b9cc-196004f4bdcf",
+    "identifier": "CHE-164",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-164/integrate-tablebase-api"
+  },
+  {
+    "json_id": "LIC-165",
+    "linear_id": "5e774155-ed20-436c-88a9-927eecab8a25",
+    "identifier": "CHE-165",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-165/build-tablebase-display-ui"
+  },
+  {
+    "json_id": "LIC-166",
+    "linear_id": "240f1915-dfe0-4fb3-aba6-abb6b47a48cb",
+    "identifier": "CHE-166",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-166/create-chess-tv-feature"
+  },
+  {
+    "json_id": "LIC-167",
+    "linear_id": "21072a0d-c5a5-4e31-b72c-940dab435940",
+    "identifier": "CHE-167",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-167/implement-broadcastrelay-system"
+  },
+  {
+    "json_id": "LIC-168",
+    "linear_id": "315cd371-ed29-4f8a-b24e-b09a8e61dd52",
+    "identifier": "CHE-168",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-168/build-broadcast-viewing-page"
+  },
+  {
+    "json_id": "LIC-169",
+    "linear_id": "b3c67a0c-0af3-4733-bee7-8a391835dae1",
+    "identifier": "CHE-169",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-169/create-study-model"
+  },
+  {
+    "json_id": "LIC-170",
+    "linear_id": "b85e4538-1611-415c-b268-85a187cb5e2a",
+    "identifier": "CHE-170",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-170/build-study-editor-ui"
+  },
+  {
+    "json_id": "LIC-171",
+    "linear_id": "df84cddf-1dae-4448-ac92-dcbbd6591da7",
+    "identifier": "CHE-171",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-171/implement-study-sharing"
+  },
+  {
+    "json_id": "LIC-172",
+    "linear_id": "8edd5d7e-ff68-4949-abab-7e1bee90de3c",
+    "identifier": "CHE-172",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-172/create-study-practice-mode"
+  },
+  {
+    "json_id": "LIC-173",
+    "linear_id": "d9111826-ade5-4000-9ba2-4e2e3f0b7f55",
+    "identifier": "CHE-173",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-173/build-game-database-search"
+  },
+  {
+    "json_id": "LIC-174",
+    "linear_id": "7866b470-97f0-4236-9066-d5fc47b9f4e6",
+    "identifier": "CHE-174",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-174/implement-game-import-from-pgn-files"
+  },
+  {
+    "json_id": "LIC-175",
+    "linear_id": "152f8666-5f79-47f7-bc2d-18de13e70079",
+    "identifier": "CHE-175",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-175/create-gif-export-for-games"
+  },
+  {
+    "json_id": "LIC-176",
+    "linear_id": "db390ddf-89a4-4fa3-b60d-845dc9f00398",
+    "identifier": "CHE-176",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-176/build-game-embed-widget"
+  },
+  {
+    "json_id": "LIC-177",
+    "linear_id": "3859c9a9-6ab5-46cb-a063-412c9b4226cf",
+    "identifier": "CHE-177",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-177/implement-videostream-integration"
+  },
+  {
+    "json_id": "LIC-178",
+    "linear_id": "6ec199e4-54c0-4b23-96f3-c07763cc2bfa",
+    "identifier": "CHE-178",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-178/create-coach-directory"
+  },
+  {
+    "json_id": "LIC-179",
+    "linear_id": "f501e65f-996d-4528-9983-b3f8ab46a356",
+    "identifier": "CHE-179",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-179/implement-world-records-tracking"
+  },
+  {
+    "json_id": "LIC-180",
+    "linear_id": "a91dac5a-f001-45cc-b74b-ae096d313f58",
+    "identifier": "CHE-180",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-180/build-patrondonation-system"
+  },
+  {
+    "json_id": "LIC-181",
+    "linear_id": "ac1dfcde-fa0a-4acb-a6b8-c5610b3e4340",
+    "identifier": "CHE-181",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-181/design-comprehensive-public-api"
+  },
+  {
+    "json_id": "LIC-182",
+    "linear_id": "315a0910-88a8-4ae6-89c9-508f9198c645",
+    "identifier": "CHE-182",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-182/implement-api-authentication-oauth2"
+  },
+  {
+    "json_id": "LIC-183",
+    "linear_id": "3147cef9-e300-4e8a-9e3f-4b6af53e2480",
+    "identifier": "CHE-183",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-183/create-api-rate-limiting"
+  },
+  {
+    "json_id": "LIC-184",
+    "linear_id": "eac1dc33-37b2-4fab-91eb-1e1c74c5a47e",
+    "identifier": "CHE-184",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-184/build-streaming-ndjson-endpoints"
+  },
+  {
+    "json_id": "LIC-185",
+    "linear_id": "8a9777cb-4663-47cd-86ef-63bd1093248e",
+    "identifier": "CHE-185",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-185/create-api-documentation-site"
+  },
+  {
+    "json_id": "LIC-186",
+    "linear_id": "f74d9b4b-a926-4752-89df-1e61aee1fe03",
+    "identifier": "CHE-186",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-186/implement-bot-api"
+  },
+  {
+    "json_id": "LIC-187",
+    "linear_id": "e66c096c-1fa4-4511-96a9-15c64ce798a1",
+    "identifier": "CHE-187",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-187/build-mobile-responsive-ui"
+  },
+  {
+    "json_id": "LIC-188",
+    "linear_id": "6dc25330-de9d-44e3-adf5-c67fa6eddf16",
+    "identifier": "CHE-188",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-188/create-pwa-support"
+  },
+  {
+    "json_id": "LIC-189",
+    "linear_id": "8dc59f47-97a8-4f91-b11b-7e9485934fb5",
+    "identifier": "CHE-189",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-189/implement-push-notifications"
+  },
+  {
+    "json_id": "LIC-190",
+    "linear_id": "8f95f523-fce4-4c0e-8250-e8e50625b83f",
+    "identifier": "CHE-190",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-190/create-performance-monitoring-dashboard"
+  },
+  {
+    "json_id": "LIC-191",
+    "linear_id": "a1e39676-70b1-4095-9c65-7b39203a03b9",
+    "identifier": "CHE-191",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-191/implement-database-query-optimization"
+  },
+  {
+    "json_id": "LIC-192",
+    "linear_id": "6eceeb60-1c0b-4228-ae1c-089f28d84738",
+    "identifier": "CHE-192",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-192/build-cdn-integration"
+  },
+  {
+    "json_id": "LIC-193",
+    "linear_id": "04248b55-e406-46ef-9a76-89ab498f2dd7",
+    "identifier": "CHE-193",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-193/create-load-testing-suite"
+  },
+  {
+    "json_id": "LIC-194",
+    "linear_id": "a3c67df8-c2fa-41f5-97b2-097f66bfb3e3",
+    "identifier": "CHE-194",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-194/implement-basic-anti-cheat-detection"
+  },
+  {
+    "json_id": "LIC-195",
+    "linear_id": "0df31304-b689-41df-9e92-a25048c4c1f7",
+    "identifier": "CHE-195",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-195/build-admin-dashboard"
+  },
+  {
+    "json_id": "LIC-196",
+    "linear_id": "6d0ae0e4-fdab-4df1-bad3-b079ce1c4653",
+    "identifier": "CHE-196",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-196/create-internationalization-i18n-framework"
+  },
+  {
+    "json_id": "LIC-197",
+    "linear_id": "360e79bf-5773-4f69-80fa-b994aa1711db",
+    "identifier": "CHE-197",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-197/implement-seo-optimization"
+  },
+  {
+    "json_id": "LIC-198",
+    "linear_id": "7c1b939d-f506-4bb2-9d25-aba18d59cfc1",
+    "identifier": "CHE-198",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-198/create-backup-and-disaster-recovery-plan"
+  },
+  {
+    "json_id": "LIC-199",
+    "linear_id": "7b400f1a-c8fc-4d67-b41b-b48ad8d6716c",
+    "identifier": "CHE-199",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-199/build-production-deployment-pipeline"
+  },
+  {
+    "json_id": "LIC-200",
+    "linear_id": "32dba2ba-61ba-4d9e-9682-334decec0a0b",
+    "identifier": "CHE-200",
+    "url": "https://linear.app/django-react-vibefast/issue/CHE-200/conduct-security-audit-and-hardening"
+  }
+]

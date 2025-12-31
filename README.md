@@ -42,6 +42,13 @@ See: `/.claude/skills/bulletproof-react-styleguide/SKILL.md`
 
 See: `/.claude/skills/init-django-backend/SKILL.md`
 
+## Linear Integration
+
+This repo contains 200 tickets organized into 10 phases, synced to Linear.
+
+- `lichess_tickets.json` - All 200 tickets with phase/priority metadata
+- `linear_ticket_mapping.json` - Maps local ticket IDs to Linear issue IDs
+
 ## Document Structure
 
 ```
@@ -58,15 +65,26 @@ lichess_specs/
 │   ├── rating-system.md
 │   ├── real-time-gameplay.md
 │   └── user-authentication.md
+├── 03-game-modes/         # Game mode variants
+│   ├── timed-games.md
+│   └── correspondence.md
 ├── 04-training/           # Training features
 │   ├── puzzles.md
 │   └── analysis-board.md
 ├── 05-competitive/        # Tournament features
-│   └── arena-tournaments.md
+│   ├── arena-tournaments.md
+│   ├── swiss-tournaments.md
+│   └── leaderboards.md
 ├── 06-social/             # Social features
-│   └── teams-clubs.md
-└── 08-api/                # API design
-    └── api-design.md
+│   ├── teams-clubs.md
+│   └── chat-messaging.md
+├── 07-content/            # Content management
+│   ├── opening-explorer.md
+│   └── endgame-tablebase.md
+├── 08-api/                # API design
+│   └── api-design.md
+└── 09-resources/          # Reference materials
+    └── lichess-research.md
 ```
 
 ## Pattern Examples
